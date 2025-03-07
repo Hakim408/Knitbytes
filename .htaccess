@@ -1,0 +1,16 @@
+<IfModule mod_rewrite.c>
+    # Restrict CORS to a specific domain
+    Header set Access-Control-Allow-Origin "https://your-trusted-domain.com"
+
+    RewriteEngine on
+
+    # Rewrite rules
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ /index.php?page=$1 [L]
+
+    # Protect sensitive files
+    <FilesMatch "(\.htaccess|\.env|config\.php)$">
+        Require all denied
+    </FilesMatch>
+</IfModule>

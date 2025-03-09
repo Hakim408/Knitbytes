@@ -30,16 +30,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
         // SMTP Configuration
         $mail->isSMTP();
-        $mail->Host = 'smtp.gmail.com';  
+        $mail->Host = 'mail.knitbytes.com';  // SMTP server
         $mail->SMTPAuth = true;
-        $mail->Username = 'hakimraut408@gmail.com';  
-        $mail->Password = 'vuvt vryo qqtl gkxa';  // R0j#gR&E70g{
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port = 465;
+        $mail->Username = 'info@knitbytes.com';  // Your email address
+        $mail->Password = 'Knitbytes@1';  // Your email password
+        $mail->SMTPSecure = 'ssl';  // Use SSL encryption
+        $mail->Port = 465;  // Port 465 is for SSL
 
         // Sender & Recipient
         $mail->setFrom($email, $name);
-        $mail->addAddress('hakimraut408@gmail.com');  
+        $mail->addAddress('info@knitbytes.com');  // Recipient email address
 
         // Email Content
         $mail->isHTML(true);
@@ -73,4 +73,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     header("Location: " . $_SERVER['HTTP_REFERER']);
     exit();
 }
+
 ?>

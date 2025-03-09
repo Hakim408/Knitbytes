@@ -1,7 +1,38 @@
 <IfModule mod_rewrite.c>
+    # Restrict CORS to a specific domain
+    Header set Access-Control-Allow-Origin "https://your-trusted-domain.com" 
 
-RewriteEngine on
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$    /index.php/$2/?page=$1   [L]
+    # If your site should allow multiple domains, you can list them here:
+    # Header set Access-Control-Allow-Origin "https://domain1.com https://domain2.com"
+
+    # If you want to allow all domains (be cautious, as this can pose a security risk):
+    # Header set Access-Control-Allow-Origin "*"
+
+    # Force HTTPS
+    RewriteCond %{HTTPS} off
+    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+    # Enable URL rewriting
+    RewriteEngine on
+
+    # Check if the requested file or directory exists
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+
+    # Rewrite rule: All requests are directed to index.php with the 'page' parameter
+    RewriteRule ^(.*)$ /index.php?page=$1 [L]
+
+    # Protect sensitive files from being accessed directly
+    <FilesMatch "(\.htaccess|\.env|config\.php|database\.conf)$">
+        Require all denied
+    </FilesMatch>
+
+</IfModule>
+
+# Optional: Prevent directory browsing (if you haven’t done so already in the server configuration)
+Options -Indexes
+
+# Enable compression to improve performance (if mod_deflate is enabled)
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/text text/html text/plain text/xml text/css application/x-javascript application/javascript application/json
 </IfModule>

@@ -30,7 +30,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 
 <!DOCTYPE html>
 <html lang="en">
-
+<?php require_once('inc/header.php') ?>
 <head>
     <meta charset="utf-8">
     <title>Knit Bytes</title>
@@ -81,8 +81,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
          alt="Logo" 
          style="height: 100px !important; width: auto; max-height: none; object-fit: contain;">
     <div class="ms-1 d-flex flex-column justify-content-center" style="margin-top: 10px;"> 
-        <h3 class="m-0" style="font-weight: bold; color: white; font-size: 22px;" style=" font-family: 'Saira', sans-serif;">Knit Bytes</h3>
-        <small style="font-size: 10px; color: white; opacity: 0.9;" style=" font-family: 'Saira', sans-serif;">Digital Solutions</small>
+        <h3 class="m-0" style="font-weight: bold; color: white; font-size: 22px; font-family: 'Saira', sans-serif;">Knit Bytes</h3>
+        <small style="font-size: 10px; color: white; opacity: 0.9; font-family: 'Saira', sans-serif; margin-left: 14px;">Digital Solutions</small>
     </div>
 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -96,7 +96,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
                         <a href="team.php" class="nav-item nav-link">Our Team</a>
                         <a href="contact.php" class="nav-item nav-link">Contact</a>
                     </div>
-                    <a href="admin/index.php" class="btn rounded-pill py-2 px-4 ms-3 d-none d-lg-block">Get Started</a>
+                    <a href="contact.php" class="btn rounded-pill py-2 px-4 ms-3 d-none d-lg-block">Apply For Internship</a>
                 </div>
             </nav>
             <?php 

@@ -4,9 +4,7 @@
     --secondary: #FBA504;
     --light: #F6F4F9;
     --dark: #34313a;
-    
 }
-
 
 /*** Spinner ***/
 #spinner {
@@ -30,7 +28,6 @@
     z-index: 99;
 }
 
-
 /*** Heading ***/
 h1,
 h2,
@@ -49,7 +46,6 @@ h6,
 .fw-medium {
     font-weight: 500 !important;
 }
-
 
 /*** Button ***/
 .btn {
@@ -87,17 +83,13 @@ h6,
     border-radius: 50px;
 }
 
-
-
 /*** Navbar ***/
 /* Navbar default - transparent background */
 .navbar {
     font-family: "Saira", sans-serif;
     background-color: #022b60;
     transition: all 0.3s ease-in-out;
-
 }
-
 
 .footer-menu a {
     margin-right: 20px; /* Adjust this value to increase or decrease the space */
@@ -171,33 +163,41 @@ h6,
     max-height: 45px;
 }
 
-@media (max-width: 991.98px) {
-    .sticky-top.navbar-light {
-        position: relative;
-        background: #f8f9fa; /* Light white background */
-    }
-
-    .navbar-light .navbar-collapse {
-        margin-top: 15px;
-        border-top: 1px solid #DDDDDD;
-    }
-
-    .navbar-light .navbar-nav .nav-link,
-    .sticky-top.navbar-light .navbar-nav .nav-link {
-        padding: 10px 0;
-        margin-left: 0;
-        color: #333333 !important; /* Dark grey text color */
-    }
-
-    .navbar-light .navbar-brand h1 {
-        color: #007bff; /* Change this to a lighter color if needed */
-    }
-
-    .navbar-light .navbar-brand img {
-        max-height: 45px;
-    }
+/* New Mobile Navigation Styles */
+.navbar-light .navbar-collapse {
+    background-color: transparent !important; /* Initially, keep the navbar background transparent */
 }
 
+/* When the navbar menu is opened on mobile devices */
+.navbar-collapse.show {
+    background-color: #022b60 !important; /* Background color when menu is open */
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: white !important; /* Ensure the text is always white when the menu is open */
+}
+
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .nav-link.active {
+    color: var(--secondary) !important;
+}
+
+/* Adjusting the navbar background on mobile */
+@media (max-width: 991.98px) {
+    /* When the navbar menu is opened, background should be consistent */
+    .navbar-light .navbar-collapse.show {
+        background-color: #022b60 !important; /* Ensure the background color is visible */
+    }
+
+    .navbar-light .navbar-nav .nav-link {
+        color: white !important; /* Keep the text white in mobile view */
+    }
+
+    /* Mobile-specific adjustments */
+    .navbar-light .navbar-collapse {
+        background-color: #022b60 !important; /* Make sure the background color is visible */
+    }
+}
 
 @media (min-width: 992px) {
     .navbar-light {

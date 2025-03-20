@@ -86,10 +86,11 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
          alt="Logo" 
          style="height: 100px !important; width: auto; max-height: none; object-fit: contain;">
     <div class="ms-1 d-flex flex-column justify-content-center" style="margin-top: 10px;"> 
-        <h3 class="m-0" style="font-weight: bold; color: white; font-size: 22px;" style=" font-family: 'Saira', sans-serif;">Knit Bytes</h3>
-        <small style="font-size: 10px; color: white; opacity: 0.9;" style=" font-family: 'Saira', sans-serif;">Digital Solutions</small>
+        <h3 class="m-0" style="font-weight: bold; color: white; font-size: 22px; font-family: 'Saira', sans-serif;">Knit Bytes</h3>
+        <small style="font-size: 10px; color: white; opacity: 0.9; font-family: 'Saira', sans-serif; margin-left: 14px;">Digital Solutions</small>
     </div>
 </a>
+
 
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -103,7 +104,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
                 <a href="team.php" class="nav-item nav-link">Our Team</a>
                 <a href="contact.php" class="nav-item nav-link">Contact</a>
             </div>
-            <a href="admin/index.php" class="btn rounded-pill py-2 px-4 ms-3 d-none d-lg-block">Get Started</a>
+            <a href="contact.php" class="btn rounded-pill py-2 px-4 ms-3 d-none d-lg-block">Apply For Internship</a>
         </div>
     </nav>
 </div>
@@ -329,13 +330,13 @@ while ($row = $c_qry->fetch_assoc()) {
                     </div>
                     <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.5s">
                         <i class="fa fa-users fa-3x text-secondary mb-3"></i>
-                        <h1 class="text-black mb-2" data-toggle="counter-up">123</h1>
+                        <h1 class="text-black mb-2" data-toggle="counter-up">23</h1>
                         <p class="text-black mb-0" style=" font-family: 'Saira', sans-serif;">Satisfied Clients</p>
                     </div>
                     <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.7s">
                         <i class="fa fa-check fa-3x text-secondary mb-3"></i>
-                        <h1 class="text-black mb-2" data-toggle="counter-up">150</h1>
-                        <p class="text-black mb-0" style=" font-family: 'Saira', sans-serif;">Compleate Projects</p>
+                        <h1 class="text-black mb-2" data-toggle="counter-up">15</h1>
+                        <p class="text-black mb-0" style=" font-family: 'Saira', sans-serif;">Complete Projects</p>
                     </div>
                 </div>
             </div>
@@ -368,7 +369,7 @@ while ($row = $c_qry->fetch_assoc()) {
                     <div class="col-lg-4 col-md-6 portfolio-item first wow fadeInUp" data-wow-delay="0.1s">
                         <div class="rounded overflow-hidden">
                             <div class="position-relative overflow-hidden">
-                                <img class="img-fluid w-100" src="img/ui.png" alt="" style="width: 100px; height: 140px;">
+                                <img class="img-fluid w-100" src="img/ui.png" alt="" style="width: 40px; height: 140px;">
                                 <div class="portfolio-overlay">
                                     <a class="btn btn-square btn-outline-light mx-1" href="img/ui.png" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
                                     <a class="btn btn-square btn-outline-light mx-1" href=""><i class="fa fa-link"></i></a>
@@ -383,7 +384,7 @@ while ($row = $c_qry->fetch_assoc()) {
                     <div class="col-lg-4 col-md-6 portfolio-item second wow fadeInUp" data-wow-delay="0.3s">
                         <div class="rounded overflow-hidden">
                             <div class="position-relative overflow-hidden">
-                                <img class="img-fluid w-100" src="img/wd2.png" alt="" style="width: 100px; height: 140px;">
+                                <img class="img-fluid w-100" src="img/wd2.png" alt="" style="width: 40px; height: 140px;">
                                 <div class="portfolio-overlay">
                                     <a class="btn btn-square btn-outline-light mx-1" href="img/portfolio-2.jpg" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
                                     <a class="btn btn-square btn-outline-light mx-1" href=""><i class="fa fa-link"></i></a>
@@ -398,7 +399,7 @@ while ($row = $c_qry->fetch_assoc()) {
                     <div class="col-lg-4 col-md-6 portfolio-item first wow fadeInUp" data-wow-delay="0.5s">
                         <div class="rounded overflow-hidden">
                             <div class="position-relative overflow-hidden">
-                                <img class="img-fluid w-100" src="img/sd.png" alt="" style="width: 100px; height: 140px;">
+                                <img class="img-fluid w-100" src="img/sd.png" alt="" style="width: 20px; height: 140px;">
                                 <div class="portfolio-overlay">
                                     <a class="btn btn-square btn-outline-light mx-1" href="img/portfolio-3.jpg" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
                                     <a class="btn btn-square btn-outline-light mx-1" href=""><i class="fa fa-link"></i></a>
@@ -415,6 +416,7 @@ while ($row = $c_qry->fetch_assoc()) {
         </div>
         <!-- Projects End -->
 
+        
 
 
         

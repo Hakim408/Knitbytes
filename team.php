@@ -30,7 +30,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 
 <!DOCTYPE html>
 <html lang="en">
-
+<?php require_once('inc/header.php') ?>
 <head>
     <meta charset="utf-8">
     <title>Knit Bytes</title>
@@ -168,8 +168,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
          alt="Logo" 
          style="height: 100px !important; width: auto; max-height: none; object-fit: contain;">
     <div class="ms-1 d-flex flex-column justify-content-center" style="margin-top: 10px;"> 
-        <h3 class="m-0" style="font-weight: bold; color: white; font-size: 22px;" style=" font-family: 'Saira', sans-serif;">Knit Bytes</h3>
-        <small style="font-size: 10px; color: white; opacity: 0.9;" style=" font-family: 'Saira', sans-serif;">Digital Solutions</small>
+        <h3 class="m-0" style="font-weight: bold; color: white; font-size: 22px; font-family: 'Saira', sans-serif;">Knit Bytes</h3>
+        <small style="font-size: 10px; color: white; opacity: 0.9; font-family: 'Saira', sans-serif; margin-left: 14px;">Digital Solutions</small>
     </div>
 </a>
 
@@ -184,7 +184,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
                         <a href="team.php" class="nav-item nav-link">Our Team</a>
                         <a href="contact.php" class="nav-item nav-link">Contact</a>
                     </div>
-                    <a href="admin/index.php" class="btn rounded-pill py-2 px-4 ms-3 d-none d-lg-block">Get Started</a>
+                    <a href="contact.php" class="btn rounded-pill py-2 px-4 ms-3 d-none d-lg-block">Apply For Internship</a>
                 </div>
             </nav>
 
@@ -205,7 +205,7 @@ while ($row = $c_qry->fetch_assoc()) {
        <!-- Team Section -->
     <div class="container">
     <div class="wow fadeInUp" data-wow-delay="0.1s"  >
-                    <p class="section-title text-secondary justify-content-center margin-bottom: 170px;"   style=" font-family: 'Saira', sans-serif; margin-bottom: 170px;"><span></span>Our Team<span></span></p>
+                    <h1 class="section-title text-secondary justify-content-center margin-bottom: 170px;"   style=" font-family: 'Saira', sans-serif; margin-bottom: 80px;"><span></span>Our Team<span></span></p>
                     <h1 class="text-center mb-5"  style=" font-family: 'Saira', sans-serif;">Our Team Members</h1>
                 </div>
 
@@ -213,9 +213,42 @@ while ($row = $c_qry->fetch_assoc()) {
             
             <!-- Team Member 1 -->
             <div class="team-item hidden">
-                <div class="team-initials">HR</div> <!-- Using Initials -->
+                <div class="team-initials">SK</div> <!-- Using Initials -->
+                <p class="team-name">Suman Khadka</p>
+                <p class="team-role">Team Lead</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="team-item hidden">
+                <i class="fas fa-user-tie team-icon"></i> <!-- Using Icon -->
+                <p class="team-name">Niraj Gautam</p>
+                <p class="team-role">Web Developer</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="team-item hidden">
+                <i class="fas fa-user-tie team-icon"></i> <!-- Using Icon -->
                 <p class="team-name">Hakim Raut</p>
                 <p class="team-role">Web Developer</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="team-item hidden">
+                <i class="fas fa-user-tie team-icon"></i> <!-- Using Icon -->
+                <p class="team-name">Sulav Khadka</p>
+                <p class="team-role">Front End Designer (intern)</p>
                 <div class="social-icons">
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
                     <a href="#"><i class="fab fa-twitter"></i></a>
@@ -227,8 +260,8 @@ while ($row = $c_qry->fetch_assoc()) {
             <!-- Team Member 2 -->
             <div class="team-item hidden">
                 <i class="fas fa-user-tie team-icon"></i> <!-- Using Icon -->
-                <p class="team-name">Ramesh Adhikari</p>
-                <p class="team-role">UI & UX Designer</p>
+                <p class="team-name">Milan Sunar</p>
+                <p class="team-role">Digital Marketing (intern)</p>
                 <div class="social-icons">
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
                     <a href="#"><i class="fab fa-twitter"></i></a>
@@ -239,9 +272,9 @@ while ($row = $c_qry->fetch_assoc()) {
 
             <!-- Team Member 3 -->
             <div class="team-item hidden">
-                <div class="team-initials">NG</div> <!-- Using Initials -->
-                <p class="team-name">Niraj Gautam</p>
-                <p class="team-role">Web Developer</p>
+                <div class="team-initials">AK</div> <!-- Using Initials -->
+                <p class="team-name">Ashish Khadka</p>
+                <p class="team-role">Backend Developer (intern)</p>
                 <div class="social-icons">
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
                     <a href="#"><i class="fab fa-twitter"></i></a>
@@ -249,8 +282,8 @@ while ($row = $c_qry->fetch_assoc()) {
                     <a href="#"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
-
         </div>
+        
     </div>
         <!-- Team End -->
         

@@ -31,7 +31,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 
 <!DOCTYPE html>
 <html lang="en">
-
+<?php require_once('inc/header.php') ?>
 <head>
     <meta charset="utf-8">
     <title>Knit Bytes</title>
@@ -80,12 +80,12 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
             <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
             <a href="index.php" class="navbar-brand p-0">
             <a href="index.php" class="navbar-brand p-0 d-flex align-items-center" style="min-height: 100px; max-height: none;">
-            <img src="<?php echo validate_image($_settings->info('logo')) ?>" 
-             alt="Logo" 
-             style="height: 100px !important; width: auto; max-height: none; object-fit: contain;">
-        <div class="ms-1 d-flex flex-column justify-content-center" style="margin-top: 10px;"> 
-        <h3 class="m-0" style="font-weight: bold; color: white; font-size: 22px;" style=" font-family: 'Saira', sans-serif;">Knit Bytes</h3>
-        <small style="font-size: 10px; color: white; opacity: 0.9;" style=" font-family: 'Saira', sans-serif;">Digital Solutions</small>
+    <img src="<?php echo validate_image($_settings->info('logo')) ?>" 
+         alt="Logo" 
+         style="height: 100px !important; width: auto; max-height: none; object-fit: contain;">
+    <div class="ms-1 d-flex flex-column justify-content-center" style="margin-top: 10px;"> 
+        <h3 class="m-0" style="font-weight: bold; color: white; font-size: 22px; font-family: 'Saira', sans-serif;">Knit Bytes</h3>
+        <small style="font-size: 10px; color: white; opacity: 0.9; font-family: 'Saira', sans-serif; margin-left: 14px;">Digital Solutions</small>
     </div>
 </a>
 
@@ -100,7 +100,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
                         <a href="team.php" class="nav-item nav-link">Our Team</a>
                         <a href="contact.php" class="nav-item nav-link">Contact</a>
                     </div>
-                    <a href="admin/index.php" class="btn rounded-pill py-2 px-4 ms-3 d-none d-lg-block">Get Started</a>
+                    <a href="contact.php" class="btn rounded-pill py-2 px-4 ms-3 d-none d-lg-block">Apply For Internship</a>
                 </div>
             </nav>
             <?php 
@@ -157,6 +157,45 @@ while($row = $c_qry->fetch_assoc()){
         <p style="color: white;"><i class="fab fa-whatsapp me-3" style="color: #25D366;"></i> <?php echo $contact['mobile']; ?></p>
         <p style="color: white;"><i class="fa fa-envelope me-3"></i><?php echo $contact['email']; ?></p>
     </div>
+            <!-- Map location -->
+             <style>
+                .map_section {
+    padding: 2rem 0;
+    background: var(--color-bg);
+    text-align: center;
+}
+
+.map_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.map_container h2 {
+    margin-bottom: 1rem;
+}
+
+.map_container iframe {
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px;
+    height: 450px;
+}
+                </style>
+                
+            <section class="map_section">
+            <div class="contact-info p-4 shadow-sm" style="background: linear-gradient(135deg, #022b60, #022b60); color: white; border-radius: 10px;">
+         <div class="container map_container">
+         <h4 class="mb-4" style="color: white;" style="font-family: 'Saira', sans-serif; font-weight: bold;">Our Location</h4>
+        
+         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3533.172659389106!2d85.3291404746389!3d27.68105797619764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19c0621939f3%3A0x7c6f123059383661!2sPrabhu%20Bank%20Limited!5e0!3m2!1sen!2snp!4v1741918017161!5m2!1sen!2snp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+        </iframe>
+          </div>
+    </div>
+   </section>
+
 </div>
 
 

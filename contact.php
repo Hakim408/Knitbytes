@@ -201,6 +201,7 @@ while($row = $c_qry->fetch_assoc()){
 
             <!-- Right Side - Internship Application Form -->
             <div class="col-lg-7 wow fadeInUp" data-wow-delay="0.5s">
+            <div class="contact-info p-4 shadow-sm" style="background: linear-gradient(135deg, #022b60, #022b60); color: white; border-radius: 10px;">
                 <form id="internshipForm" action="send_email.php" method="POST" enctype="multipart/form-data">
                     <!-- Full Name Field -->
                     <div class="form-group mb-3 ">
@@ -343,7 +344,7 @@ while($row = $c_qry->fetch_assoc()){
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, #022b60, #022b60);
+    background: linear-gradient(135deg,rgb(149, 181, 224),rgb(134, 169, 214));
     color: white;
     border: none;
     border-radius: 10px;

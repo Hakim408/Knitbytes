@@ -205,17 +205,48 @@ while ($row = $c_qry->fetch_assoc()) {
        <!-- Team Section -->
     <div class="container">
     <div class="wow fadeInUp" data-wow-delay="0.1s"  >
-                    <h1 class="section-title text-secondary justify-content-center margin-bottom: 170px;"   style=" font-family: 'Saira', sans-serif; margin-bottom: 80px;"><span></span>Our Team<span></span></p>
-                    <h1 class="text-center mb-5"  style=" font-family: 'Saira', sans-serif;">Our Team Members</h1>
-                </div>
+    <p class="section-title text-secondary" style="    min-height: 300px
+    ;
+    margin-top: 0rem;
+    margin-bottom: -1rem;
+     padding-bottom: 5px;">
+            <span></span>Our Team<span></span>
+        </p>
+        <h1 class="text-center mb-5" style="font-family: 'Saira', sans-serif; padding-top: 0px;">
+            Our Team Members
+        </h1>
+    </div>
 
         <div class="team-row">
             
             <!-- Team Member 1 -->
+
+            <div class="team-item hidden">
+                <div class="team-initials">RD</div> <!-- Using Initials -->
+                <p class="team-name">Roshan Dhakal</p>
+                <p class="team-role">CTO</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
             <div class="team-item hidden">
                 <div class="team-initials">SK</div> <!-- Using Initials -->
                 <p class="team-name">Suman Khadka</p>
                 <p class="team-role">Team Lead</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="team-item hidden">
+                <div class="team-initials">KG</div> <!-- Using Initials -->
+                <p class="team-name">Krinjal Ghale</p>
+                <p class="team-role">QA</p>
                 <div class="social-icons">
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
                     <a href="#"><i class="fab fa-twitter"></i></a>
@@ -272,7 +303,7 @@ while ($row = $c_qry->fetch_assoc()) {
 
             <!-- Team Member 3 -->
             <div class="team-item hidden">
-                <div class="team-initials">AK</div> <!-- Using Initials -->
+            <i class="fas fa-user-tie team-icon"></i>
                 <p class="team-name">Ashish Khadka</p>
                 <p class="team-role">Backend Developer (intern)</p>
                 <div class="social-icons">

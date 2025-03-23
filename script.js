@@ -67,6 +67,19 @@ var swiper = new Swiper(".mySwiper", {
   }
 });
 
+<script>
+    $(document).ready(function() {
+        $('.flexslider').flexslider({
+            animation: "slide",    // "fade" or "slide"
+            controlNav: false,     // Hide navigation dots
+            directionNav: true,    // Show next/prev buttons
+            slideshow: false,      // Disable auto slide
+            slideshowSpeed: 5000,  // Slide duration (5 sec)
+            animationSpeed: 600    // Animation transition speed
+        })
+    })
+</script>
+ 
 
 document.getElementById('contactForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent the default form submission

@@ -133,12 +133,13 @@ while ($row = $c_qry->fetch_assoc()) {
     <p class="text-black pb-3 animated slideInDown" style="text-align: justify;" style=" font-family: 'Saira', sans-serif;">
         <?php echo stripslashes($_settings->info('welcome_message')) ?>
     </p>
-    <a href="#" class="btn btn-secondary py-sm-3 px-sm-5 rounded-pill me-3 animated slideInLeft" style=" font-family: 'Saira', sans-serif;">
-        Read More
-    </a>
-    <a href="contact.php" class="btn btn-dark py-sm-3 px-sm-5 rounded-pill animated slideInRight" style=" font-family: 'Saira', sans-serif;">
-        Contact Us
-    </a>
+    <a href="#" class="btn btn-primary py-sm-3 px-sm-5 rounded-pill me-3 animated slideInLeft" style="font-family: 'Saira', sans-serif; background-color: #022b60; border-color: #022b60;">
+    Read More
+</a>
+<a href="contact.php" class="btn btn-primary py-sm-3 px-sm-5 rounded-pill animated slideInRight" style="font-family: 'Saira', sans-serif; background-color: #022b60; border-color: #022b60;">
+    Contact Us
+</a>
+
 </div>
 
             <div class="col-lg-6 text-center"> 
@@ -416,7 +417,7 @@ while ($row = $c_qry->fetch_assoc()) {
         </div>
         <!-- Projects End -->
 
-        
+       
 
 
         

@@ -30,7 +30,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 
 <!DOCTYPE html>
 <html lang="en">
-<?php require_once('inc/header.php') ?>
+
 <head>
     <meta charset="utf-8">
     <title>Knit Bytes</title>
@@ -39,7 +39,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     <meta content="" name="description">
 
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <link href="img/lg.png" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -96,7 +96,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
                         <a href="team.php" class="nav-item nav-link">Our Team</a>
                         <a href="contact.php" class="nav-item nav-link">Contact</a>
                     </div>
-                    <a href="contact.php" class="btn rounded-pill py-2 px-4 ms-3 d-none d-lg-block">Apply For Internship</a>
+                    <a href="contact.php" class="btn rounded-pill py-2 px-4 ms-3 d-none d-lg-block" style="background-color:  #FBA504">Apply For Internship</a>
                 </div>
             </nav>
             <?php 
@@ -122,7 +122,7 @@ while ($row = $c_qry->fetch_assoc()) {
             <p class="section-title text-secondary justify-content-center" style=" font-family: 'Saira', sans-serif; margin-top: 80px;">
                 <span></span>Our Services<span></span>
             </p>
-            <h1 class="text-center mb-5" style=" font-family: 'Saira', sans-serif;">What Solutions We Provide</h1>
+            <h1 class="text-center mb-5" style=" font-family: 'Saira', sans-serif;color: #022b60;">What Solutions We Provide</h1>
         </div>
 
         <!-- Swiper Slider -->

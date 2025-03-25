@@ -181,21 +181,68 @@ h6,
 .navbar-light .navbar-nav .nav-link.active {
     color: var(--secondary) !important;
 }
-
-/* Adjusting the navbar background on mobile */
+/* Mobile-specific navbar styles */
 @media (max-width: 991.98px) {
-    /* When the navbar menu is opened, background should be consistent */
+
+    /* Customizing the navbar-toggler button (hamburger button) */
+    .navbar-light .navbar-toggler {
+        border-color: white !important; /* Set border color to white */
+    }
+
+    /* Remove the default hamburger icon and style the lines */
+    .navbar-light .navbar-toggler-icon {
+        background-image: none !important; /* Remove default Bootstrap icon */
+        position: relative;
+        width: 30px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Custom top and bottom lines of the hamburger icon */
+    .navbar-light .navbar-toggler-icon::before,
+    .navbar-light .navbar-toggler-icon::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        background-color: white !important; /* Make top and bottom lines white */
+        left: 0;
+        transition: 0.3s;
+    }
+
+    .navbar-light .navbar-toggler-icon::before {
+        top: 0;
+    }
+
+    .navbar-light .navbar-toggler-icon::after {
+        bottom: 0;
+    }
+
+    /* Custom middle line of the hamburger icon */
+    .navbar-light .navbar-toggler-icon span {
+        width: 100%;
+        height: 3px;
+        background-color: white !important; /* Middle line should be white */
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    /* When the navbar menu is opened, background should remain visible */
     .navbar-light .navbar-collapse.show {
-        background-color: #022b60 !important; /* Ensure the background color is visible */
+        background-color: #022b60 !important; /* Ensure background color is visible */
     }
 
+    /* Make nav links white in mobile view */
     .navbar-light .navbar-nav .nav-link {
-        color: white !important; /* Keep the text white in mobile view */
+        color: white !important; /* Make text white */
     }
 
-    /* Mobile-specific adjustments */
+    /* Ensure navbar collapse background color on mobile */
     .navbar-light .navbar-collapse {
-        background-color: #022b60 !important; /* Make sure the background color is visible */
+        background-color: #022b60 !important;
     }
 }
 
@@ -247,7 +294,73 @@ h6,
 }
 
 
+.apply-text {
+    font-family: 'Saira', sans-serif;
+    font-weight: bold;
+    font-size: 24px;
+    color: #ffffff;
+    background: linear-gradient(45deg, #ff8a00, #e52e71, #007bff, #00c851);
+    background-size: 400% 400%;
+    padding: 10px 20px;
+    border-radius: 10px;
+    display: inline-block;
+    text-align: center;
+    animation: popUp 0.8s ease-out, gradientBG 4s infinite linear;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes popUp {
+    0% {
+        transform: translateY(10px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Gradient Background Animation */
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
 /*** Hero Header ***/
+.hero-header {
+    position: relative;
+}
+
+.hero-header::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px; /* Adjust height for more blur effect */
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+}
+
 .hero-header {
     margin-top: 0;
     margin-bottom: 3rem;
@@ -309,6 +422,9 @@ h6,
 
 
 /*** Section Title ***/
+
+
+
 .container-xxl.py-5 {
     margin-top: 0;
     padding-top: 1rem; /* Reduced padding from the top */

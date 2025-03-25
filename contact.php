@@ -31,7 +31,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 
 <!DOCTYPE html>
 <html lang="en">
-<?php require_once('inc/header.php') ?>
+
 <head>
     <meta charset="utf-8">
     <title>Knit Bytes</title>
@@ -40,7 +40,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     <meta content="" name="description">
 
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <link href="img/lg.png" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -100,7 +100,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
                         <a href="team.php" class="nav-item nav-link">Our Team</a>
                         <a href="contact.php" class="nav-item nav-link">Contact</a>
                     </div>
-                    <a href="contact.php" class="btn rounded-pill py-2 px-4 ms-3 d-none d-lg-block">Apply For Internship</a>
+                    <a href="contact.php" class="btn rounded-pill py-2 px-4 ms-3 d-none d-lg-block" style="background-color:  #FBA504">Apply For Internship</a>
                 </div>
             </nav>
             <?php 
@@ -141,7 +141,47 @@ while($row = $c_qry->fetch_assoc()){
             <p class="section-title text-secondary" style="font-family: 'Saira', sans-serif; font-weight: bold; padding-bottom: 5px;">
                 <span></span>Contact Us<span></span>
             </p>
-            <h3 class="mb-2" style="font-family: 'Saira', sans-serif; font-weight: bold;">Apply for Internship</h3>
+            <h3 class="apply-text">Apply for Internship</h3>
+            <!-- <style>
+.apply-text {
+    font-family: 'Saira', sans-serif;
+    font-weight: bold;
+    font-size: 24px;
+    color: #ffffff;
+    background: linear-gradient(45deg, #ff8a00, #e52e71, #007bff, #00c851);
+    background-size: 400% 400%;
+    padding: 10px 20px;
+    border-radius: 10px;
+    display: inline-block;
+    text-align: center;
+    animation: popUp 0.8s ease-out, gradientBG 4s infinite linear;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes popUp {
+    0% {
+        transform: translateY(10px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+</style> -->
+
         </div>
     </div>
 </div>
@@ -152,7 +192,7 @@ while($row = $c_qry->fetch_assoc()){
             <!-- Left Side - Contact Info -->
             <div class="col-lg-5 wow animate__animated animate__fadeInLeft" data-wow-delay="0.3s">
     <div class="contact-info p-4 shadow-sm" style="background: linear-gradient(135deg, #022b60, #022b60); color: white; border-radius: 10px;">
-        <h4 class="mb-4" style="color: white;" style="font-family: 'Saira', sans-serif; font-weight: bold;">Get In Touch</h4>
+        <h4 class="mb-4" style="color: #FBA504;" style="font-family: 'Saira', sans-serif; font-weight: bold;">Get In Touch</h4>
         <p style="color: white;"><i class="fa fa-map-marker-alt me-3"></i><?php echo $contact['address']; ?></p>
         <p style="color: white;"><i class="fab fa-whatsapp me-3" style="color: #25D366;"></i> <?php echo $contact['mobile']; ?></p>
         <p style="color: white;"><i class="fa fa-envelope me-3"></i><?php echo $contact['email']; ?></p>
@@ -187,7 +227,7 @@ while($row = $c_qry->fetch_assoc()){
             <section class="map_section">
             <div class="contact-info p-4 shadow-sm" style="background: linear-gradient(135deg, #022b60, #022b60); color: white; border-radius: 10px;">
          <div class="container map_container">
-         <h4 class="mb-4" style="color: white;" style="font-family: 'Saira', sans-serif; font-weight: bold;">Our Location</h4>
+         <h4 class="mb-4" style="color: #FBA504;" style="font-family: 'Saira', sans-serif; font-weight: bold;">Our Location</h4>
         
          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3533.172659389106!2d85.3291404746389!3d27.68105797619764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19c0621939f3%3A0x7c6f123059383661!2sPrabhu%20Bank%20Limited!5e0!3m2!1sen!2snp!4v1741918017161!5m2!1sen!2snp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
@@ -202,7 +242,8 @@ while($row = $c_qry->fetch_assoc()){
             <!-- Right Side - Internship Application Form -->
             <div class="col-lg-7 wow fadeInUp" data-wow-delay="0.5s">
             <div class="contact-info p-4 shadow-sm" style="background: linear-gradient(135deg, #022b60, #022b60); color: white; border-radius: 10px;">
-                <form id="internshipForm" action="send_email.php" method="POST" enctype="multipart/form-data">
+            <h3 class="apply-now-text">Apply Now</h3>
+            <form id="internshipForm" action="send_email.php" method="POST" enctype="multipart/form-data">
                     <!-- Full Name Field -->
                     <div class="form-group mb-3 ">
                         <label for="full_name"  class="text-black" >Full Name</label>
@@ -294,6 +335,15 @@ while($row = $c_qry->fetch_assoc()){
 
 <!-- Additional CSS to Style the Form Attractively -->
 <style>
+    .apply-now-text {
+    text-align: center; /* Centers the text horizontally */
+    font-size: 28px; /* Adjust the font size */
+    font-family: 'Saira', sans-serif;
+    font-weight: bold;
+    color: #FBA504; /* White color for text */
+    margin-bottom: 20px; /* Add space below the text */
+}
+
     @keyframes slideInLeft {
     from {
         transform: translateX(-100%);

@@ -30,7 +30,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 
 <!DOCTYPE html>
 <html lang="en">
-<?php require_once('inc/header.php') ?>
+
 <head>
     <meta charset="utf-8">
     <title>Knit Bytes</title>
@@ -39,7 +39,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     <meta content="" name="description">
 
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <link href="img/lg.png" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -184,7 +184,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
                         <a href="team.php" class="nav-item nav-link">Our Team</a>
                         <a href="contact.php" class="nav-item nav-link">Contact</a>
                     </div>
-                    <a href="contact.php" class="btn rounded-pill py-2 px-4 ms-3 d-none d-lg-block">Apply For Internship</a>
+                    <a href="contact.php" class="btn rounded-pill py-2 px-4 ms-3 d-none d-lg-block" style="background-color:  #FBA504">Apply For Internship</a>
                 </div>
             </nav>
 
@@ -212,17 +212,17 @@ while ($row = $c_qry->fetch_assoc()) {
      padding-bottom: 5px;">
             <span></span>Our Team<span></span>
         </p>
-        <h1 class="text-center mb-5" style="font-family: 'Saira', sans-serif; padding-top: 0px;">
+        <h1 class="text-center mb-5" style="font-family: 'Saira', sans-serif; padding-top: 0px; color: #022b60;">
             Our Team Members
         </h1>
     </div>
 
         <div class="team-row">
             
-            <!-- Team Member 1 -->
+            
 
             <div class="team-item hidden">
-                <div class="team-initials">RD</div> <!-- Using Initials -->
+                <div class="team-initials">RD</div> <!-- <img src="image.jpg" alt="Roshan Dhakal" class="team-image"> -->
                 <p class="team-name">Roshan Dhakal</p>
                 <p class="team-role">CTO</p>
                 <div class="social-icons">
@@ -233,7 +233,7 @@ while ($row = $c_qry->fetch_assoc()) {
                 </div>
             </div>
             <div class="team-item hidden">
-                <div class="team-initials">SK</div> <!-- Using Initials -->
+                <div class="team-initials">SK</div> 
                 <p class="team-name">Suman Khadka</p>
                 <p class="team-role">Team Lead</p>
                 <div class="social-icons">
@@ -244,7 +244,7 @@ while ($row = $c_qry->fetch_assoc()) {
                 </div>
             </div>
             <div class="team-item hidden">
-                <div class="team-initials">KG</div> <!-- Using Initials -->
+                <div class="team-initials">KG</div> 
                 <p class="team-name">Krinjal Ghale</p>
                 <p class="team-role">QA</p>
                 <div class="social-icons">
@@ -255,7 +255,7 @@ while ($row = $c_qry->fetch_assoc()) {
                 </div>
             </div>
             <div class="team-item hidden">
-                <i class="fas fa-user-tie team-icon"></i> <!-- Using Icon -->
+                <i class="fas fa-user-tie team-icon"></i> 
                 <p class="team-name">Niraj Gautam</p>
                 <p class="team-role">Web Developer</p>
                 <div class="social-icons">
@@ -266,7 +266,7 @@ while ($row = $c_qry->fetch_assoc()) {
                 </div>
             </div>
             <div class="team-item hidden">
-                <i class="fas fa-user-tie team-icon"></i> <!-- Using Icon -->
+                <i class="fas fa-user-tie team-icon"></i> 
                 <p class="team-name">Hakim Raut</p>
                 <p class="team-role">Web Developer</p>
                 <div class="social-icons">
@@ -277,7 +277,7 @@ while ($row = $c_qry->fetch_assoc()) {
                 </div>
             </div>
             <div class="team-item hidden">
-                <i class="fas fa-user-tie team-icon"></i> <!-- Using Icon -->
+                <i class="fas fa-user-tie team-icon"></i> 
                 <p class="team-name">Sulav Khadka</p>
                 <p class="team-role">Front End Designer (intern)</p>
                 <div class="social-icons">
@@ -290,7 +290,7 @@ while ($row = $c_qry->fetch_assoc()) {
 
             <!-- Team Member 2 -->
             <div class="team-item hidden">
-                <i class="fas fa-user-tie team-icon"></i> <!-- Using Icon -->
+                <i class="fas fa-user-tie team-icon"></i> 
                 <p class="team-name">Milan Sunar</p>
                 <p class="team-role">Digital Marketing (intern)</p>
                 <div class="social-icons">

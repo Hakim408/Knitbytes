@@ -31,7 +31,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 
 <!DOCTYPE html>
 <html lang="en">
-<?php require_once('inc/header.php') ?>
+
 <head>
     <meta charset="utf-8">
     <title>Knit Bytes</title>
@@ -40,7 +40,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     <meta content="" name="description">
 
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <link href="img/lg.png" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -98,7 +98,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
                         <a href="team.php" class="nav-item nav-link">Our Team</a>
                         <a href="contact.php" class="nav-item nav-link">Contact</a>
                     </div>
-                    <a href="contact.php" class="btn rounded-pill py-2 px-4 ms-3 d-none d-lg-block">Apply For Internship</a>
+                    <a href="contact.php" class="btn rounded-pill py-2 px-4 ms-3 d-none d-lg-block" style="background-color:  #FBA504">Apply For Internship</a>
                 </div>
             </nav>
             <?php 
@@ -127,36 +127,43 @@ while ($row = $c_qry->fetch_assoc()) {
                 <div class="row g-5 align-items-center">
                     <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                         <p class="section-title text-secondary" style=" font-family: 'Saira', sans-serif;margin-top: 80px;">About Us<span></span></p>
-                        <h1 class="mb-5"style=" font-family: 'Saira', sans-serif;">We are a leading IT solutions provider</h1>
+                        <h1 class="mb-5"style=" font-family: 'Saira', sans-serif; color: #022b60;">We are a leading IT solutions provider</h1>
                         <p class="mb-4"><?php include "about.html"; ?></p>
-                        <div class="skill mb-4">
-                            <div class="d-flex justify-content-between">
-                                <p class="mb-2" style=" font-family: 'Saira', sans-serif;">Web Development</p>
-                                <p class="mb-2" style=" font-family: 'Saira', sans-serif;">85%</p>
-                            </div>
-                            <div class="progress">
-                                <div class="progress-bar bg-black" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                        <div class="skill mb-4">
-                            <div class="d-flex justify-content-between">
-                                <p class="mb-2" style=" font-family: 'Saira', sans-serif;">Software Development</p>
-                                <p class="mb-2" style=" font-family: 'Saira', sans-serif;">90%</p>
-                            </div>
-                            <div class="progress">
-                                <div class="progress-bar bg-secondary" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                        <div class="skill mb-4">
-                            <div class="d-flex justify-content-between">
-                                <p class="mb-2" style=" font-family: 'Saira', sans-serif;">Design & Development</p>
-                                <p class="mb-2" style=" font-family: 'Saira', sans-serif;">95%</p>
-                            </div>
-                            <div class="progress">
-                                <div class="progress-bar bg-dark" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                        <a href="" class="btn btn-primary py-sm-3 px-sm-5 rounded-pill mt-3" style=" font-family: 'Saira', sans-serif;">Read More</a>
+                        <!-- Skill 1: Web Development -->
+                <div class="skill mb-4">
+                    <div class="d-flex justify-content-between">
+                        <p class="mb-2" style="font-family: 'Saira', sans-serif;">Web Development</p>
+                        <p class="mb-2" style="font-family: 'Saira', sans-serif;">85%</p>
+                    </div>
+                    <div class="progress" style="height: 8px; width: 80%; margin: 0 auto;">
+                        <div class="progress-bar" style="background-color: #FBA504; width: 85%;" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+
+                <!-- Skill 2: Software Development -->
+                <div class="skill mb-4">
+                    <div class="d-flex justify-content-between">
+                        <p class="mb-2" style="font-family: 'Saira', sans-serif;">Software Development</p>
+                        <p class="mb-2" style="font-family: 'Saira', sans-serif;">90%</p>
+                    </div>
+                    <div class="progress" style="height: 8px; width: 80%; margin: 0 auto;">
+                        <div class="progress-bar" style="background-color: #FBA504; width: 90%;" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+
+                <!-- Skill 3: Design & Development -->
+                <div class="skill mb-4">
+                    <div class="d-flex justify-content-between">
+                        <p class="mb-2" style="font-family: 'Saira', sans-serif;">Design & Development</p>
+                        <p class="mb-2" style="font-family: 'Saira', sans-serif;">95%</p>
+                    </div>
+                    <div class="progress" style="height: 8px; width: 80%; margin: 0 auto;">
+                        <div class="progress-bar" style="background-color: #FBA504; width: 95%;" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+                        <a href="" class="btn btn py-sm-3 px-sm-5 rounded-pill mt-3" style="font-family: 'Saira', sans-serif; background-color: #022b60; border-color: #022b60; color: white;">
+    Read More
+</a>
                     </div>
                     <div class="col-lg-6">
                         <img class="img-fluid wow zoomIn" data-wow-delay="0.5s" src="img/about.png">

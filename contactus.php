@@ -25,6 +25,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
       echo "<script>console.log('Query','".$sql."')</script>";
    }
 }
+
 ?>
 
 
@@ -54,99 +55,13 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     <link href="lib/animate/animate.min.css" rel="stylesheet">
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
-    <style>
-        .team-row {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .team-item {
-            width: 320px;
-            background: linear-gradient(135deg, #022b60, #022b60);
-            color: white;
-            text-align: center;
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .team-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Icons Instead of Images */
-        .team-icon {
-            font-size: 60px;
-            color: white;
-            margin-bottom: 15px;
-        }
-
-        /* Initials Instead of Images */
-        .team-initials {
-            width: 80px;
-            height: 80px;
-            background-color: white;
-            color: #007bff;
-            font-size: 24px;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            margin: auto;
-            margin-bottom: 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        .team-name {
-            font-size: 20px;
-            font-weight: bold;
-        }
-
-        .team-role {
-            font-size: 16px;
-            font-style: italic;
-            opacity: 0.9;
-        }
-
-        /* Social Media Icons */
-        .social-icons {
-            margin-top: 15px;
-        }
-
-        .social-icons a {
-            color: white;
-            font-size: 18px;
-            margin: 0 8px;
-            transition: color 0.3s;
-        }
-
-        .social-icons a:hover {
-            color: #ffd700;
-        }
-
-        /* Scroll Effect */
-        .hidden {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s, transform 0.6s;
-        }
-
-        .visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
 </head>
 
 <body>
@@ -163,6 +78,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         <!-- Navbar & Hero Start -->
         <div class="container-xxl position-relative p-0">
             <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0 container-fluid">
+            <a href="index.php" class="navbar-brand p-0">
             <a href="index.php" class="navbar-brand p-0 d-flex align-items-center" style="min-height: 100px; max-height: none;">
     <img src="<?php echo validate_image($_settings->info('logo')) ?>" 
          alt="Logo" 
@@ -187,145 +103,267 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
                     <a href="contact.php" class="btn rounded-pill py-2 px-4 ms-3" style="background-color: #FBA504">Apply For Internship</a>
                 </div>
             </nav>
-
-          
-        
-        <?php 
-$u_qry = $conn->query("SELECT * FROM users WHERE id = 1");
-foreach ($u_qry->fetch_array() as $k => $v) {
-    if (!is_numeric($k)) {
-        $user[$k] = $v;
-    }
+            <?php 
+$u_qry = $conn->query("SELECT * FROM users where id = 1");
+foreach($u_qry->fetch_array() as $k => $v){
+  if(!is_numeric($k)){
+    $user[$k] = $v;
+  }
 }
 $c_qry = $conn->query("SELECT * FROM contacts");
-while ($row = $c_qry->fetch_assoc()) {
+while($row = $c_qry->fetch_assoc()){
     $contact[$row['meta_field']] = $row['meta_value'];
 }
+// var_dump($contact['facebook']);
 ?>
-       <!-- Team Section -->
-    <div class="container">
-    <div class="wow fadeInUp" data-wow-delay="0.1s"  >
-    <p class="section-title text-secondary" style="    min-height: 300px
-    ;
-    margin-top: 0rem;
-    margin-bottom: -1rem;
-     padding-bottom: 5px;">
-            <span></span>Our Team<span></span>
-        </p>
-        <h1 class="text-center mb-5" style="font-family: 'Saira', sans-serif; padding-top: 0px; color: #022b60;">
-            Our Team Members
-        </h1>
+      
+        <!-- Navbar & Hero End -->
+
+
+  <!-- Contact Start -->
+<div class="container-xxl py-5">
+    <div class="container py-5 px-lg-5">
+    <div class="container py-3 px-lg-5">
+        <!-- Display Success/Error Message -->
+        <?php
+            if (session_status() === PHP_SESSION_NONE) {
+                session_start(); 
+            }
+
+            if (isset($_SESSION['message'])) {
+                echo $_SESSION['message'];
+                unset($_SESSION['message']); 
+            }
+        ?>
+
+    <div class="container d-flex flex-column justify-content-center align-items-center text-center" style="min-height: 20vh; margin-top: 80px;">
+        <div class="wow fadeInUp" data-wow-delay="0.1s">
+            <p class="section-title text-secondary" style="font-family: 'Saira', sans-serif; font-weight: bold; padding-bottom: 5px;">
+                <span></span>Contact Us<span></span>
+            </p>
+            <h3 class="apply-text">Have any Query?</h3>
+            <!-- <style>
+.apply-text {
+    font-family: 'Saira', sans-serif;
+    font-weight: bold;
+    font-size: 24px;
+    color: #ffffff;
+    background: linear-gradient(45deg, #ff8a00, #e52e71, #007bff, #00c851);
+    background-size: 400% 400%;
+    padding: 10px 20px;
+    border-radius: 10px;
+    display: inline-block;
+    text-align: center;
+    animation: popUp 0.8s ease-out, gradientBG 4s infinite linear;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes popUp {
+    0% {
+        transform: translateY(10px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+</style> -->
+
+        </div>
     </div>
+</div>
 
-        <div class="team-row">
-            
-            
 
-            <div class="team-item hidden">
-                <div class="team-initials">RD</div> <!-- <img src="image.jpg" alt="Roshan Dhakal" class="team-image"> -->
-                <p class="team-name">Roshan Dhakal</p>
-                <p class="team-role">CTO</p>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-            </div>
-            <div class="team-item hidden">
-                <div class="team-initials">SK</div> 
-                <p class="team-name">Suman Khadka</p>
-                <p class="team-role">Team Lead</p>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-            </div>
-            <div class="team-item hidden">
-                <div class="team-initials">KG</div> 
-                <p class="team-name">Krinjal Ghale</p>
-                <p class="team-role">QA</p>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-            </div>
-            <div class="team-item hidden">
-                <i class="fas fa-user-tie team-icon"></i> 
-                <p class="team-name">Niraj Gautam</p>
-                <p class="team-role">Web Developer</p>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-            </div>
-            <div class="team-item hidden">
-                <i class="fas fa-user-tie team-icon"></i> 
-                <p class="team-name">Hakim Raut</p>
-                <p class="team-role">Web Developer</p>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-            </div>
-            <div class="team-item hidden">
-                <i class="fas fa-user-tie team-icon"></i> 
-                <p class="team-name">Sulav Khadka</p>
-                <p class="team-role">Front End Designer (intern)</p>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                </div>
+
+        <div class="row justify-content-center" >
+            <!-- Left Side - Contact Info -->
+            <div class="col-lg-5 wow animate__animated animate__fadeInLeft"  data-wow-delay="0.3s">
+    <div class="contact-info p-4 shadow-sm" style="background: linear-gradient(135deg, #022b60, #022b60); color: white; border-radius: 10px; font-family: 'Saira', sans-serif; margin-top: 250px;">
+        <h4 class="mb-4" style="color: #FBA504; font-weight: bold;">Get In Touch</h4>
+        <p style="color: white; font-size: 16px; line-height: 1.5; margin: 0;">
+            <i class="fa fa-map-marker-alt me-3" style="color:rgb(22, 130, 253);"></i>
+            <a href="https://www.google.com/maps/search/?api=1&query=<?php echo urlencode($contact['address']); ?>" 
+               target="_blank" 
+               style="color: white; text-decoration: none; font-weight: 500; transition: color 0.3s ease-in-out;">
+               <?php echo $contact['address']; ?>
+            </a>
+            <a href="https://www.google.com/maps/search/?api=1&query=<?php echo urlencode($contact['address']); ?>" 
+               target="_blank" 
+               style="font-size: 14px; color: rgb(22, 130, 253); margin-left: 250px; font-style: italic; text-decoration: none;">
+                (View on Map)
+            </a>
+        </p>
+
+        <p style="color: white;">
+            <i class="fab fa-whatsapp me-3" style="color: #25D366;"></i> 
+            <?php echo $contact['mobile']; ?>
+        </p>
+        <p style="color: white;">
+            <i class="fa fa-envelope me-3"></i>
+            <?php echo $contact['email']; ?>
+        </p>
+    </div>
+</div>
+
+
+
+            <!-- Right Side - Internship Application Form -->
+            <div class="col-lg-7 wow fadeInUp" data-wow-delay="0.5s">
+            <div class="contact-info p-4 shadow-sm" style="background: linear-gradient(135deg, #022b60, #022b60); color: white; border-radius: 10px;">
+            <h3 class="apply-now-text">Message US</h3>
+            <form id="internshipForm" action="send_query.php" method="POST" enctype="multipart/form-data">
+ <!-- Full Name Field -->
+ <div class="form-group mb-3">
+                <label for="name" class="text-black" style="font-family: 'Saira', sans-serif;">Full Name</label>
+                <input type="text" class="form-control" id="name" name="name" required style="font-family: 'Saira', sans-serif;">
             </div>
 
-            <!-- Team Member 2 -->
-            <div class="team-item hidden">
-                <i class="fas fa-user-tie team-icon"></i> 
-                <p class="team-name">Milan Sunar</p>
-                <p class="team-role">Digital Marketing (intern)</p>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                </div>
+            <!-- Contact Number Field -->
+            <div class="form-group mb-3">
+                <label for="contact_number" class="text-black" style="font-family: 'Saira', sans-serif;">Contact Number</label>
+                <input type="text" class="form-control" id="contact_number" name="contact_number" required style="font-family: 'Saira', sans-serif;">
             </div>
 
-            <!-- Team Member 3 -->
-            <div class="team-item hidden">
-            <i class="fas fa-user-tie team-icon"></i>
-                <p class="team-name">Ashish Khadka</p>
-                <p class="team-role">Backend Developer (intern)</p>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                </div>
+            <!-- Email Address Field -->
+            <div class="form-group mb-3">
+                <label for="email" class="text-black" style="font-family: 'Saira', sans-serif;">Email</label>
+                <input type="email" class="form-control" id="email" name="email" required style="font-family: 'Saira', sans-serif;">
+            </div>
+
+            <!-- Subject Dropdown -->
+            <div class="form-group mb-3">
+                <label for="subject" class="text-black" style="font-family: 'Saira', sans-serif;">Subject</label>
+                <select class="form-control" id="subject" name="subject" required style="font-family: 'Saira', sans-serif;">
+                    <option value="" disabled selected>Select Subject</option>
+                    <option value="IT Services">IT Services</option>
+                    <option value="Hosting">Hosting</option>
+                    <option value="Web Development">Web Development</option>
+                    <option value="Marketing">Marketing</option>
+                </select>
+            </div>
+
+            <!-- Message Field -->
+            <div class="form-group mb-3">
+                <label for="message" class="text-black" style="font-family: 'Saira', sans-serif;">Message</label>
+                <textarea class="form-control" id="message" name="message" required rows="4" style="font-family: 'Saira', sans-serif;"></textarea>
+            </div>
+
+                    <!-- Submit Button -->
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary" style="font-family: 'Saira', sans-serif; font-weight: bold; padding: 10px 30px;">
+                            Send Query
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
-        
     </div>
-        <!-- Team End -->
+</div>
+<!-- Contact End -->
+
+<!-- Additional CSS to Style the Form Attractively -->
+<style>
+    .apply-now-text {
+    text-align: center; /* Centers the text horizontally */
+    font-size: 28px; /* Adjust the font size */
+    font-family: 'Saira', sans-serif;
+    font-weight: bold;
+    color: #FBA504; /* White color for text */
+    margin-bottom: 20px; /* Add space below the text */
+}
+
+    @keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.contact-info {
+    background: linear-gradient(135deg, #022b60, #022b60);
+    color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: slideInLeft 1s ease-in-out;
+}
+
+.contact-info h4 {
+    font-family: 'Saira', sans-serif;
+    font-weight: bold;
+}
+
+.contact-info p {
+    color: black;
+    font-size: 16px;
+}
+
+.contact-info i {
+    font-size: 18px;
+}
+
+.form-control {
+    width: 80%;
+    margin: 0 auto 15px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 8px 12px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    box-shadow: 0 0 8px rgba(0, 0, 255, 0.6);
+    border-color: #2575fc;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg,rgb(149, 181, 224),rgb(134, 169, 214));
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    padding: 10px 25px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #2575fc, #6a11cb);
+}
+
+</style>
+
+
+<!-- Contact End -->
+
+        <!-- Contact End -->
         
 
-        <div class="container-fluid bg-white text-light footer wow fadeIn" data-wow-delay="0.1s" style="font-family: 'Saira', sans-serif; margin-top: 50px;">
+        <div class="container-fluid bg-white text-light footer wow fadeIn" data-wow-delay="0.1s" style="font-family: 'Saira', sans-serif; margin-top: -10px;">
     <div class="container-fluid py-3 px-lg-5">
         <div class="row g-4">
             <!-- Address Section (Left) -->
             <div class="col-md-4">
                 <p class="section-title text-black h5 mb-4">Address<span></span></p>
-                                <p style= "color:rgb(22, 130, 253);">
+                <p style= "color:rgb(22, 130, 253);">
             <i class="fa fa-map-marker-alt me-3"></i>
             <a href="https://www.google.com/maps/search/?api=1&query=<?php echo urlencode($contact['address']); ?>" 
                target="_blank" 
@@ -433,22 +471,6 @@ while ($row = $c_qry->fetch_assoc()) {
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-    <script>
-        function revealOnScroll() {
-            var elements = document.querySelectorAll(".hidden");
-            elements.forEach((element) => {
-                var position = element.getBoundingClientRect().top;
-                var screenHeight = window.innerHeight;
-
-                if (position < screenHeight - 100) {
-                    element.classList.add("visible");
-                }
-            });
-        }
-
-        window.addEventListener("scroll", revealOnScroll);
-        revealOnScroll();
-    </script>
 </body>
 
 </html>

@@ -77,7 +77,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 
         <!-- Navbar & Hero Start -->
         <div class="container-xxl position-relative p-0">
-            <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+            <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0 container-fluid">
             <a href="index.php" class="navbar-brand p-0">
             <a href="index.php" class="navbar-brand p-0 d-flex align-items-center" style="min-height: 100px; max-height: none;">
     <img src="<?php echo validate_image($_settings->info('logo')) ?>" 
@@ -98,9 +98,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
                         <a href="about.php" class="nav-item nav-link">About</a>
                         <a href="service.php" class="nav-item nav-link">Service</a>
                         <a href="team.php" class="nav-item nav-link">Our Team</a>
-                        <a href="contact.php" class="nav-item nav-link">Contact</a>
-                    </div>
-                    <a href="contact.php" class="btn rounded-pill py-2 px-4 ms-3 d-none d-lg-block" style="background-color:  #FBA504">Apply For Internship</a>
+                        <a href="contactus.php" class="nav-item nav-link">Contact</a>
+                    </div> <a href="contact.php" class="btn rounded-pill py-2 px-4 ms-3" style="background-color: #FBA504">Apply For Internship</a> 
                 </div>
             </nav>
             <?php 
@@ -191,52 +190,33 @@ while($row = $c_qry->fetch_assoc()){
         <div class="row justify-content-center">
             <!-- Left Side - Contact Info -->
             <div class="col-lg-5 wow animate__animated animate__fadeInLeft" data-wow-delay="0.3s">
-    <div class="contact-info p-4 shadow-sm" style="background: linear-gradient(135deg, #022b60, #022b60); color: white; border-radius: 10px;">
-        <h4 class="mb-4" style="color: #FBA504;" style="font-family: 'Saira', sans-serif; font-weight: bold;">Get In Touch</h4>
-        <p style="color: white;"><i class="fa fa-map-marker-alt me-3"></i><?php echo $contact['address']; ?></p>
-        <p style="color: white;"><i class="fab fa-whatsapp me-3" style="color: #25D366;"></i> <?php echo $contact['mobile']; ?></p>
-        <p style="color: white;"><i class="fa fa-envelope me-3"></i><?php echo $contact['email']; ?></p>
+    <div class="contact-info p-4 shadow-sm" style="background: linear-gradient(135deg, #022b60, #022b60); color: white; border-radius: 10px; font-family: 'Saira', sans-serif; margin-top: 250px;">
+        <h4 class="mb-4" style="color: #FBA504; font-weight: bold;">Get In Touch</h4>
+        <p style="color: white; font-size: 16px; line-height: 1.5; margin: 0;">
+            <i class="fa fa-map-marker-alt me-3" style="color:rgb(22, 130, 253);"></i>
+            <a href="https://www.google.com/maps/search/?api=1&query=<?php echo urlencode($contact['address']); ?>" 
+               target="_blank" 
+               style="color: white; text-decoration: none; font-weight: 500; transition: color 0.3s ease-in-out;">
+               <?php echo $contact['address']; ?>
+            </a>
+            <a href="https://www.google.com/maps/search/?api=1&query=<?php echo urlencode($contact['address']); ?>" 
+               target="_blank" 
+               style="font-size: 14px; color: rgb(22, 130, 253); margin-left: 250px; font-style: italic; text-decoration: none;">
+                (View on Map)
+            </a>
+        </p>
+
+        <p style="color: white;">
+            <i class="fab fa-whatsapp me-3" style="color: #25D366;"></i> 
+            <?php echo $contact['mobile']; ?>
+        </p>
+        <p style="color: white;">
+            <i class="fa fa-envelope me-3"></i>
+            <?php echo $contact['email']; ?>
+        </p>
     </div>
-            <!-- Map location -->
-             <style>
-                .map_section {
-    padding: 2rem 0;
-    background: var(--color-bg);
-    text-align: center;
-}
-
-.map_container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.map_container h2 {
-    margin-bottom: 1rem;
-}
-
-.map_container iframe {
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 800px;
-    height: 450px;
-}
-                </style>
-                
-            <section class="map_section">
-            <div class="contact-info p-4 shadow-sm" style="background: linear-gradient(135deg, #022b60, #022b60); color: white; border-radius: 10px;">
-         <div class="container map_container">
-         <h4 class="mb-4" style="color: #FBA504;" style="font-family: 'Saira', sans-serif; font-weight: bold;">Our Location</h4>
-        
-         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3533.172659389106!2d85.3291404746389!3d27.68105797619764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19c0621939f3%3A0x7c6f123059383661!2sPrabhu%20Bank%20Limited!5e0!3m2!1sen!2snp!4v1741918017161!5m2!1sen!2snp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-
-        </iframe>
-          </div>
-    </div>
-   </section>
-
 </div>
+
 
 
             <!-- Right Side - Internship Application Form -->
@@ -417,12 +397,19 @@ while($row = $c_qry->fetch_assoc()){
         
 
         <div class="container-fluid bg-white text-light footer wow fadeIn" data-wow-delay="0.1s" style="font-family: 'Saira', sans-serif; margin-top: -10px;">
-    <div class="container py-3 px-lg-5">
+    <div class="container-fluid py-3 px-lg-5">
         <div class="row g-4">
             <!-- Address Section (Left) -->
             <div class="col-md-4">
                 <p class="section-title text-black h5 mb-4">Address<span></span></p>
-                <p style="color: black;"><i class="fa fa-map-marker-alt me-3"></i><?php echo $contact['address']; ?></p>
+                <p style= "color:rgb(22, 130, 253);">
+            <i class="fa fa-map-marker-alt me-3"></i>
+            <a href="https://www.google.com/maps/search/?api=1&query=<?php echo urlencode($contact['address']); ?>" 
+               target="_blank" 
+               style="color: black; text-decoration: none;">
+               <?php echo $contact['address']; ?>
+            </a>
+        </p>
                 <p style="color: black;"><i class="fab fa-whatsapp me-3" style="color: #25D366;"></i> <?php echo $contact['mobile']; ?></p>
                 <p style="color: black;"><i class="fa fa-envelope me-3"></i><?php echo $contact['email']; ?></p>
                 <div class="d-flex pt-2">
@@ -433,18 +420,42 @@ while($row = $c_qry->fetch_assoc()){
                 </div>
             </div>
 
-            <!-- Gallery Section (Centered) -->
-            <div class="col-md-4 text-center">
-                <p class="section-title text-black h5 mb-4">Gallery<span></span></p>
-                <div class="row g-2 justify-content-center">
-                    <div class="col-4"><img class="img-fluid" src="img/android.png" alt="Image"></div>
-                    <div class="col-4"><img class="img-fluid" src="img/software.png" alt="Image"></div>
-                    <div class="col-4"><img class="img-fluid" src="img/web.png" alt="Image"></div>
-                    <div class="col-4"><img class="img-fluid" src="img/sd.png" alt="Image"></div>
-                    <div class="col-4"><img class="img-fluid" src="img/wd2.png" alt="Image"></div>
-                    <div class="col-4"><img class="img-fluid" src="img/ui.png" alt="Image"></div>
-                </div>
-            </div>
+                 <!-- Gallery Section (Centered) -->
+                 <div class="col-md-4 text-center">
+    <p class="section-title text-black h5 mb-4">Gallery<span></span></p>
+    <div class="row g-2 justify-content-center">
+        <div class="col-4">
+            <img class="img-fluid" src="img/android.png" alt="Image">
+        </div>
+        <div class="col-4">
+            <img class="img-fluid" src="img/software.png" alt="Image">
+        </div>
+        <div class="col-4">
+            <img class="img-fluid" src="img/web.png" alt="Image">
+        </div>
+        <div class="col-4">
+            <img class="img-fluid" src="img/sd.png" alt="Image">
+        </div>
+        <div class="col-4">
+            <img class="img-fluid" src="img/wd2.png" alt="Image">
+        </div>
+        <div class="col-4">
+            <img class="img-fluid" src="img/ui.png" alt="Image">
+        </div>
+    </div>
+</div>
+
+<!-- Add this CSS to your styles -->
+<style>
+    /* Ensure all images have the same height while maintaining aspect ratio */
+    .col-4 img {
+        height: 100px;
+        width: 100px /* Set a constant height for all images */
+        object-fit: cover; /* Ensures the image covers the container without distorting */
+        border-radius: 8px;  /* Thin rounded corners */
+        border: 1px solid #ccc;  /* Optional: Thin border */
+    }
+</style>
 
             <!-- Quick Links (Rightmost Position with Space) -->
             <div class="col-md-3 offset-md-1 text-md-end" style="margin-left: auto;">

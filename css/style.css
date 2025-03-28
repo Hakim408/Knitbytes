@@ -6,6 +6,40 @@
     --dark: #34313a;
 }
 
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.container-xxl, .container-fluid {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+
+.container-fluid.py-5, .container-fluid.py-8 {
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+}
+
+.container-fluid.py-8 {
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+}
+
+.container-fluid.py-5 {
+    padding-top: 5px !important;
+    padding-bottom: 10px !important;
+}
+
+
+
+
+
 /*** Spinner ***/
 #spinner {
     opacity: 0;
@@ -181,6 +215,14 @@ h6,
 .navbar-light .navbar-nav .nav-link.active {
     color: var(--secondary) !important;
 }
+
+
+
+
+
+
+
+
 /* Mobile-specific navbar styles */
 @media (max-width: 991.98px) {
 
@@ -512,6 +554,47 @@ h6,
 .progress .progress-bar {
     width: 0px;
     transition: 3s;
+}
+
+
+.project-card {
+    background: #f8f9fa; /* Light gray background (same as testimonial card) */
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-card img {
+    border-radius: 10px 10px 0 0;
+}
+
+.project-card .portfolio-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.project-card:hover .portfolio-overlay {
+    opacity: 1;
+}
+
+.project-card .portfolio-overlay a {
+    color: #fff;
+    font-size: 18px;
+    padding: 10px;
 }
 
 

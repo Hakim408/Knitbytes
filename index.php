@@ -32,6 +32,18 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 <html lang="en">
 
 <head>
+<style>
+@media (max-width: 767px) {
+    .swiper-slide .service-description {
+        display: none !important;
+    }
+}
+
+
+
+
+
+    </style>
     <meta charset="utf-8">
     <title>KnitBytes</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -68,7 +80,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 </head>
 
 <body>
-    <div class="container-xxl bg-white p-0">
+    <div class="container-fluid bg-white p-0">
         <!-- Spinner Start -->
         <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
             <div class="spinner-grow " style="width: 3rem; height: 3rem;color: #022b60;" role="status">
@@ -79,8 +91,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 
 
         <!-- Navbar & Hero Start -->
-        <div class="container-xxl position-relative p-0">
-    <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0" style="min-height: 100px;">
+        <div class="container-fluid position-relative p-0">
+    <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0 container-fluid" style="min-height: 100px;">
     <a href="index.php" class="navbar-brand p-0 d-flex align-items-center" style="min-height: 100px; max-height: none;">
     <img src="<?php echo validate_image($_settings->info('logo')) ?>" 
          alt="Logo" 
@@ -102,9 +114,10 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
                 <a href="about.php" class="nav-item nav-link">About</a>
                 <a href="service.php" class="nav-item nav-link">Service</a>
                 <a href="team.php" class="nav-item nav-link">Our Team</a>
-                <a href="contact.php" class="nav-item nav-link">Contact</a>
+                <a href="contactus.php" class="nav-item nav-link">Contact</a>
             </div>
-            <a href="contact.php" class="btn rounded-pill py-2 px-4 ms-3 d-none d-lg-block" style="background-color:  #FBA504">Apply For Internship</a>
+            <a href="contact.php" class="btn rounded-pill py-2 px-4 ms-3" style="background-color: #FBA504">Apply For Internship</a>
+
         </div>
     </nav>
 </div>
@@ -123,8 +136,8 @@ while ($row = $c_qry->fetch_assoc()) {
     $contact[$row['meta_field']] = $row['meta_value'];
 }
 ?>
-<div class="container-xxl bg-light hero-header pb-5 ">
-    <div class="container px-lg-5">
+<div class="container-fluid bg-light hero-header pb-5 ">
+    <div class="container px-lg-6">
         <div class="row g-5 align-items-center">
         <div class="col-lg-6 text-center text-lg-start" style=" font-family: 'Saira', sans-serif;">
     <h1 class="text-black pb-3 animated slideInDown" style=" font-family: 'Saira', sans-serif;">
@@ -133,7 +146,7 @@ while ($row = $c_qry->fetch_assoc()) {
     <p class="text-black pb-3 animated slideInDown" style="text-align: justify;" style=" font-family: 'Saira', sans-serif;">
         <?php echo stripslashes($_settings->info('welcome_message')) ?>
     </p>
-    <a href="#" class="btn btn-primary py-sm-3 px-sm-5 rounded-pill me-3 animated slideInLeft" style="font-family: 'Saira', sans-serif; background-color: #022b60; border-color: #022b60;">
+    <a href="service.php" class="btn btn-primary py-sm-3 px-sm-5 rounded-pill me-3 animated slideInLeft" style="font-family: 'Saira', sans-serif; background-color: #022b60; border-color: #022b60;">
     Read More
 </a>
 <a href="contact.php" class="btn btn-primary py-sm-3 px-sm-5 rounded-pill animated slideInRight" style="font-family: 'Saira', sans-serif; background-color: #022b60; border-color: #022b60;">
@@ -154,10 +167,10 @@ while ($row = $c_qry->fetch_assoc()) {
 
      <!-- Feature Start -->
 <!-- Feature Start -->
-<div class="container-xxl py-5">
-    <div class="container py-5 px-lg-5">
+<div class="container-fluid py-5">
+    <div class="container-fluid py-5 px-lg-5">
         <div class="wow fadeInUp" data-wow-delay="0.1s">
-            <p class="section-title text-secondary justify-content-center" style=" font-family: 'Saira', sans-serif;margin-top: -100px;">
+            <p class="section-title text-secondary justify-content-center" style=" font-family: 'Saira', sans-serif;margin-top: -5px;">
                 <span></span>Our Services<span></span>
             </p>
             <h1 class="text-center mb-5" style=" font-family: 'Saira', sans-serif;">What Solutions We Provide</h1>
@@ -176,10 +189,12 @@ while ($row = $c_qry->fetch_assoc()) {
                         <!-- Dynamically fetch and display the icon or image -->
                         <img src="<?php echo validate_image($row['file_path']) ?>" 
                              alt="<?php echo $row['title'] ?>" class="img-fluid mb-4" 
-                             style="width: 100px; height: 100px;">
+                             style="width: 300px; height: 200px;">
                         
-                        <h5 class="mb-3"><?php echo $row['title'] ?></h5>
-                        <p class="m-0"><?php echo stripslashes(html_entity_decode($row['description'])) ?></p>
+                             <h5 class="mb-3" style="font-family: 'Saira', sans-serif;"><?php echo $row['title']; ?></h5>
+
+                        
+
                     </div>
                 </div>
                 <?php endwhile; ?>
@@ -239,24 +254,7 @@ while ($row = $c_qry->fetch_assoc()) {
 }
 
 /* Mobile Adjustments */
-@media (max-width: 768px) {
-    .swiper {
-        padding: 20px 0;
-    }
-    .feature-item {
-        padding: 15px;
-    }
-    .feature-item img {
-        width: 60px;
-        height: 60px;
-    }
-    h5 {
-        font-size: 16px;
-    }
-    p {
-        font-size: 14px;
-    }
-}
+
 
 .swiper-slide-active .feature-item {
     opacity: 1;
@@ -265,16 +263,17 @@ while ($row = $c_qry->fetch_assoc()) {
 }
 </style>
 
+
 <!-- Feature End -->
 
 
 
         <!-- About Start -->
-        <div class="container-xxl py-8 pb-3">
+        <div class="container-fluid py-8 pb-3">
     <div class="container py-5 px-lg-5">
         <div class="row g-5 align-items-center">
             <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                <p class="section-title text-secondary" style="font-family: 'Saira', sans-serif; margin-top: -100px;">About Us<span></span></p>
+                <p class="section-title text-secondary" style="font-family: 'Saira', sans-serif; margin-bottom: 100px;">About Us<span></span></p>
                 <h1 class="mb-5" style="font-family: 'Saira', sans-serif;">We are a leading IT solutions provider</h1>
                 <p class="mb-4"><?php include "about.html"; ?></p>
 
@@ -312,7 +311,7 @@ while ($row = $c_qry->fetch_assoc()) {
                 </div>
 
                 <!-- Read More Button -->
-                <a href="" class="btn btn-primary py-sm-3 px-sm-5 rounded-pill mt-3" style="font-family: 'Saira', sans-serif; background-color: #022b60; border-color: #022b60; ">
+                <a href="about.php" class="btn btn-primary py-sm-3 px-sm-5 rounded-pill mt-3" style="font-family: 'Saira', sans-serif; background-color: #022b60; border-color: #022b60; ">
                     Read More
                 </a>
             </div>
@@ -329,7 +328,7 @@ while ($row = $c_qry->fetch_assoc()) {
 
 
         <!-- Facts Start -->
-        <div class="container-xxl bg-white margin-top: -300px; fact py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container-fluid bg-white margin-top: -300px; fact py-5 wow fadeInUp" data-wow-delay="0.1s">
             <div class="container py-5 px-lg-5">
                 <div class="row g-4">
                     <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.1s">
@@ -363,84 +362,211 @@ while ($row = $c_qry->fetch_assoc()) {
         
 
 
-        <!-- Projects Start -->
-        <div class="container-xxl py-5 ">
-            <div class="container py-5 px-lg-5">
-                <div class="wow fadeInUp" data-wow-delay="0.1s">
-                    <p class="section-title text-secondary justify-content-center" style=" font-family: 'Saira', sans-serif; margin-top: -200px;" ><span></span>Our Projects<span></span></p>
-                    <h1 class="text-center mb-5" style=" font-family: 'Saira', sans-serif;">Recently Completed Projects</h1>
+        <div class="container-fluid py-5">
+    <div class="container py-5 px-lg-5">
+        <div class="text-center mb-5">
+        <p class="section-title text-secondary justify-content-center" style=" font-family: 'Saira', sans-serif;margin-top: -100px;">
+                <span></span>Our Project<span></span>
+            </p>
+            <h1 class="fw-bold text" style="font-family: 'Saira', sans-serif;">Recently Completed Projects</h1>
+        </div>
+        
+        <div class="row g-4">
+            <!-- Project 1 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card bg-light shadow-sm border-0 rounded">
+                    <div class="position-relative">
+                    <img src="img/wd.png" class="img-fluid rounded-top" alt="College Website" >
+
+                        <div class="portfolio-overlay d-flex justify-content-center align-items-center">
+                            <a class="btn btn-outline-dark btn-sm mx-1" href="img/drms1.PNG" data-lightbox="portfolio">
+                            
+                                <i class="fa fa-eye"></i>
+                            </a>
+                            <a class="btn btn-outline-dark btn-sm mx-1" href="https://drms.edu.np/">
+                                <i class="fa fa-link"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card-body text-center">
+                    <h5 class="fw-bold" style="font-family: 'Saira', sans-serif; color: #022b60;">School Website</h5>
+
+                        <p class="text-muted mb-2" style="font-family: 'Saira', sans-serif;">Web Development</p>
+                    </div>
                 </div>
-                <div class="row mt-n2 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="col-12 text-center">
-                        <ul class="list-inline mb-5" id="portfolio-flters">
-                            <li class="mx-2 active" data-filter="*" style=" font-family: 'Saira', sans-serif;">All</li>
-                            <li class="mx-2" data-filter=".first" style=" font-family: 'Saira', sans-serif;">Web Design</li>
-                            <li class="mx-2" data-filter=".second" style=" font-family: 'Saira', sans-serif;">Graphic Design</li>
-                        </ul>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card bg-light shadow-sm border-0 rounded">
+                    <div class="position-relative">
+                        <img src="img/wd.png" class="img-fluid rounded-top" alt="Shankhya Solution">
+                        <div class="portfolio-overlay d-flex justify-content-center align-items-center">
+                            <a class="btn btn-outline-dark btn-sm mx-1" href="img/drms2.PNG" data-lightbox="portfolio">
+                                <i class="fa fa-eye"></i>
+                            </a>
+                            <a class="btn btn-outline-dark btn-sm mx-1" href="#">
+                                <i class="fa fa-link"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card-body text-center">
+                        <h5 class="fw-bold  " style="font-family: 'Saira', sans-serif; color: #022b60;">Shankhya Solution</h5>
+                        <p class="text-muted mb-2" style="font-family: 'Saira', sans-serif;">Software Development</p>
                     </div>
                 </div>
-                <div class="row g-4 portfolio-container">
-                    <div class="col-lg-4 col-md-6 portfolio-item first wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="rounded overflow-hidden">
-                            <div class="position-relative overflow-hidden">
-                                <img class="img-fluid w-100" src="img/ui.png" alt="" style="width: 40px; height: 140px;">
-                                <div class="portfolio-overlay">
-                                    <a class="btn btn-square btn-outline-light mx-1" href="img/ui.png" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                                    <a class="btn btn-square btn-outline-light mx-1" href=""><i class="fa fa-link"></i></a>
-                                </div>
-                            </div>
-                            <div class="bg-light p-4">
-                                <p class=" fw-medium mb-2" style="font-family: 'Saira', sens-serif; color: #022b60;">UI / UX Design</p>
-                                
-                            </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card bg-light shadow-sm border-0 rounded">
+                    <div class="position-relative">
+                        <img src="img/wd.png" class="img-fluid rounded-top" alt="Sahakari E-commerce">
+                        <div class="portfolio-overlay d-flex justify-content-center align-items-center">
+                            <a class="btn btn-outline-dark btn-sm mx-1" href="img/drms2.PNG" data-lightbox="portfolio">
+                                <i class="fa fa-eye"></i>
+                            </a>
+                            <a class="btn btn-outline-dark btn-sm mx-1" href="#">
+                                <i class="fa fa-link"></i>
+                            </a>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 portfolio-item second wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="rounded overflow-hidden">
-                            <div class="position-relative overflow-hidden">
-                                <img class="img-fluid w-100" src="img/wd2.png" alt="" style="width: 40px; height: 140px;">
-                                <div class="portfolio-overlay">
-                                    <a class="btn btn-square btn-outline-light mx-1" href="img/portfolio-2.jpg" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                                    <a class="btn btn-square btn-outline-light mx-1" href=""><i class="fa fa-link"></i></a>
-                                </div>
-                            </div>
-                            <div class="bg-light p-4">
-                                <p class=" fw-medium mb-2" style=" font-family: 'Saira', sans-serif;color: #022b60;">Web Development</p>
-                               
-                            </div>
-                        </div>
+                    <div class="card-body text-center">
+                        <h5 class="fw-bold " style="font-family: 'Saira', sans-serif; color: #022b60;">Sahakari E-commerce</h5>
+                        <p class="text-muted mb-2" style="font-family: 'Saira', sans-serif;">E-Commerce Platform</p>
                     </div>
-                    <div class="col-lg-4 col-md-6 portfolio-item first wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="rounded overflow-hidden">
-                            <div class="position-relative overflow-hidden">
-                                <img class="img-fluid w-100" src="img/sd.png" alt="" style="width: 20px; height: 140px;">
-                                <div class="portfolio-overlay">
-                                    <a class="btn btn-square btn-outline-light mx-1" href="img/portfolio-3.jpg" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                                    <a class="btn btn-square btn-outline-light mx-1" href=""><i class="fa fa-link"></i></a>
-                                </div>
-                            </div>
-                            <div class="bg-light p-4">
-                                <p class=" fw-medium mb-2" style=" font-family: 'Saira', sans-serif;color: #022b60;">Software Development</p>
-                               
-                            </div>
-                        </div>
-                    </div>
-                  
+                </div>
             </div>
         </div>
-        <!-- Projects End -->
+    </div>
+</div>
+
 
        
 
 
+<div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s" style="margin-bottom: 100px;">
+    <div class="container py-5 px-lg-5">
+        <p class="section-title text-secondary justify-content-center"><span></span>Testimonial<span></span></p>
+        <h1 class="text-center mb-5">What Our Clients Say!</h1>
+        <div class="owl-carousel testimonial-carousel">
+            <?php 
+                // Fetch testimonials from the database
+                $qry = $conn->query("SELECT * FROM testimonials ORDER BY RAND()");
+                while($row = $qry->fetch_assoc()):
+                    $row['message'] = html_entity_decode($row['message']);
+            ?>
+            <div class="testimonial-item bg-light rounded my-4">
+                <p class="fs-5 d-flex justify-content-left align-items-center">
+                    <i class="fa fa-quote-left fa-2x text-secondary me-2"></i> <!-- Left quote icon -->
+                    <?php echo $row['message']; ?>
+                  
+                </p>
+                <div class="d-flex align-items-center">
+                    <!-- Dynamically fetching the image -->
+                    <img class="img-fluid flex-shrink-0 rounded-circle" 
+                         src="<?php echo validate_image($row['file_path']); ?>" 
+                         alt="<?php echo $row['message_from']; ?>" 
+                         style="width: 65px; height: 65px;">
+
+                    <div class="ps-4">
+                        <h5 class="mb-1"><?php echo $row['message_from']; ?></h5>
+                        <span><?php echo isset($row['profession']) ? $row['profession'] : 'Client'; ?></span>
+                    </div>
+                </div>
+            </div>
+            <?php endwhile; ?>
+        </div>
+    </div>
+</div>
+
+<!-- Include Owl Carousel CSS & JS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+<!-- Initialize Owl Carousel -->
+<script>
+$(document).ready(function(){
+    $(".testimonial-carousel").owlCarousel({
+        items: 1,  // Show one item at a time
+        loop: true,  // Enable looping
+        autoplay: true,  // Enable autoplay
+        autoplayTimeout: 3000,  // Time between slides (5 seconds)
+        autoplayHoverPause: true,  // Pause on hover
+        autoplaySpeed: 1000,  // Transition speed (1 second)
+        nav: false,  // Disable default navigation
+        dots: true  // Enable dots navigation
+    });
+});
+</script>
+
+<style>
+    
+    
+
+    /* Apply 'Saira' font to section-title and h1 */
+.section-title, h1 {
+    font-family: 'Saira', sans-serif;
+}
+
+    /* Testimonial Carousel Section */
+.testimonial-carousel {
+    position: relative;
+}
+/* Apply Saira font to testimonial content */
+.testimonial-item p {
+    font-family: 'Saira', sans-serif; /* Apply font to the message text */
+}
+
+.testimonial-item h5 {
+    font-family: 'Saira', sans-serif; /* Apply font to the message author */
+}
+
+.testimonial-item span {
+    font-family: 'Saira', sans-serif; /* Apply font to the profession */
+}
+
+.testimonial-item {
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.testimonial-content p {
+    font-style: italic;
+    color: #555;
+}
+
+.testimonial-content h5 {
+    margin-top: 15px;
+    font-weight: bold;
+    color: #333;
+}
+</style>
+
+
+
+
+
         
-        <div class="container-fluid bg-white text-light footer wow fadeIn" data-wow-delay="0.1s" style="font-family: 'Saira', sans-serif; margin-top: -10px;">
-    <div class="container py-3 px-lg-5">
+        <div class="container-fluid bg-white text-light footer wow fadeIn" data-wow-delay="0.1s" style="font-family: 'Saira', sans-serif; margin-top: -60px;">
+    <div class="container-fluid py-3 px-lg-5">
         <div class="row g-4">
             <!-- Address Section (Left) -->
             <div class="col-md-4">
                 <p class="section-title text-black h5 mb-4">Address<span></span></p>
-                <p style="color: black;"><i class="fa fa-map-marker-alt me-3"></i><?php echo $contact['address']; ?></p>
+                <p style= "color:rgb(22, 130, 253);">
+            <i class="fa fa-map-marker-alt me-3"></i>
+            <a href="https://www.google.com/maps/search/?api=1&query=<?php echo urlencode($contact['address']); ?>" 
+               target="_blank" 
+               style="color: black; text-decoration: none;">
+               <?php echo $contact['address']; ?>
+            </a>
+        </p>
                 <p style="color: black;"><i class="fab fa-whatsapp me-3" style="color: #25D366;"></i> <?php echo $contact['mobile']; ?></p>
                 <p style="color: black;"><i class="fa fa-envelope me-3"></i><?php echo $contact['email']; ?></p>
                 <div class="d-flex pt-2">
@@ -451,18 +577,44 @@ while ($row = $c_qry->fetch_assoc()) {
                 </div>
             </div>
 
-            <!-- Gallery Section (Centered) -->
-            <div class="col-md-4 text-center">
-                <p class="section-title text-black h5 mb-4">Gallery<span></span></p>
-                <div class="row g-2 justify-content-center">
-                    <div class="col-4"><img class="img-fluid" src="img/android.png" alt="Image"></div>
-                    <div class="col-4"><img class="img-fluid" src="img/software.png" alt="Image"></div>
-                    <div class="col-4"><img class="img-fluid" src="img/web.png" alt="Image"></div>
-                    <div class="col-4"><img class="img-fluid" src="img/sd.png" alt="Image"></div>
-                    <div class="col-4"><img class="img-fluid" src="img/wd2.png" alt="Image"></div>
-                    <div class="col-4"><img class="img-fluid" src="img/ui.png" alt="Image"></div>
-                </div>
-            </div>
+                 <!-- Gallery Section (Centered) -->
+<div class="col-md-4 text-center">
+    <p class="section-title text-black h5 mb-4">Gallery<span></span></p>
+    <div class="row g-2 justify-content-center">
+        <div class="col-4">
+            <img class="img-fluid" src="img/android.png" alt="Image">
+        </div>
+        <div class="col-4">
+            <img class="img-fluid" src="img/software.png" alt="Image">
+        </div>
+        <div class="col-4">
+            <img class="img-fluid" src="img/web.png" alt="Image">
+        </div>
+        <div class="col-4">
+            <img class="img-fluid" src="img/sd.png" alt="Image">
+        </div>
+        <div class="col-4">
+            <img class="img-fluid" src="img/wd2.png" alt="Image">
+        </div>
+        <div class="col-4">
+            <img class="img-fluid" src="img/ui.png" alt="Image">
+        </div>
+    </div>
+</div>
+
+<!-- Add this CSS to your styles -->
+<style>
+    /* Ensure all images have the same height while maintaining aspect ratio */
+    .col-4 img {
+        height: 100px;
+        width: 100px /* Set a constant height for all images */
+        object-fit: cover; /* Ensures the image covers the container without distorting */
+        border-radius: 8px;  /* Thin rounded corners */
+        border: 1px solid #ccc;  /* Optional: Thin border */
+    }
+</style>
+
+
 
             <!-- Quick Links (Rightmost Position with Space) -->
             <div class="col-md-3 offset-md-1 text-md-end" style="margin-left: auto;">

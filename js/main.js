@@ -87,3 +87,61 @@
     });
 
 })(jQuery);
+
+
+ // Ensure the DOM is fully loaded before adding event listeners
+ document.addEventListener("DOMContentLoaded", function() {
+    const chatButton = document.getElementById('chatButton');
+    const chatboxContainer = document.getElementById('chatboxContainer');
+    const closeChatButton = document.getElementById('closeChat');
+    const sendButton = document.getElementById('sendButton');
+    const userMessageInput = document.getElementById('userMessage');
+    const chatbox = document.getElementById('chatbox');
+
+    // Toggle chatbox visibility when the chat button is clicked
+    chatButton.addEventListener('click', function() {
+        chatboxContainer.style.display = 'flex'; // Show the chatbox
+    });
+
+    // Close the chatbox when the close button is clicked
+    closeChatButton.addEventListener('click', function() {
+        chatboxContainer.style.display = 'none'; // Hide the chatbox
+    });
+
+    // Handle sending the message when the send button is clicked
+    sendButton.addEventListener('click', function() {
+        const userMessage = userMessageInput.value.trim();
+
+        if (userMessage) {
+            // Display the user's message in the chatbox
+            const userMessageElement = document.createElement('div');
+            userMessageElement.classList.add('user-message');
+            userMessageElement.textContent = userMessage;
+            chatbox.appendChild(userMessageElement);
+
+            // Scroll to the bottom of the chatbox
+            chatbox.scrollTop = chatbox.scrollHeight;
+
+            // Clear the input field
+            userMessageInput.value = '';
+
+            // Simulate bot response after a short delay
+            setTimeout(() => {
+                const botMessageElement = document.createElement('div');
+                botMessageElement.classList.add('bot-message');
+                botMessageElement.textContent = 'Hello! How can I assist you today?';
+                chatbox.appendChild(botMessageElement);
+
+                // Scroll to the bottom of the chatbox
+                chatbox.scrollTop = chatbox.scrollHeight;
+            }, 1000);
+        }
+    });
+
+    // Close the chatbox if the user presses Enter (optional feature)
+    userMessageInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            sendButton.click();
+        }
+    });
+});

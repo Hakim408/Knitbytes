@@ -32,16 +32,12 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 <html lang="en">
 
 <head>
-<style>
-@media (max-width: 767px) {
-    .swiper-slide .service-description {
+     <style>
+       @media (max-width: 767px) {
+        .swiper-slide .service-description {
         display: none !important;
+       }
     }
-}
-
-
-
-
 
     </style>
     <meta charset="utf-8">
@@ -50,10 +46,10 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     <meta content="" name="keywords">
     <meta content="" name="description">
 
-    <!-- Favicon -->
+
     <link href="img/lg.png" rel="icon">
     <!-- <link rel="icon" href="images/favicon.png" type="image/png"> -->
-    <!-- Google Web Fonts -->
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500&family=Jost:wght@500;600;700&display=swap" rel="stylesheet"> 
@@ -67,7 +63,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
     <!-- Swiper CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -75,38 +71,37 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Saira:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Saira:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <div class="container-fluid bg-white p-0">
-        <!-- Spinner Start -->
         <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
             <div class="spinner-grow " style="width: 3rem; height: 3rem;color: #022b60;" role="status">
                 <span class="sr-only">Loading...</span>
             </div>
         </div>
-        <!-- Spinner End -->
+        
 
 
-        <!-- Navbar & Hero Start -->
+        
         <div class="container-fluid position-relative p-0">
-    <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0 container-fluid" style="min-height: 100px;">
-    <a href="index.php" class="navbar-brand p-0 d-flex align-items-center" style="min-height: 100px; max-height: none;">
-    <img src="<?php echo validate_image($_settings->info('logo')) ?>" 
-         alt="Logo" 
-         style="height: 100px !important; width: auto; max-height: none; object-fit: contain;">
-    <div class="ms-1 d-flex flex-column justify-content-center" style="margin-top: 10px;"> 
+        <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0 container-fluid" style="min-height: 100px;">
+        <a href="index.php" class="navbar-brand p-0 d-flex align-items-center" style="min-height: 100px; max-height: none;">
+              <img src="<?php echo validate_image($_settings->info('logo')) ?>" 
+               alt="Logo" 
+                  style="height: 100px !important; width: auto; max-height: none; object-fit: contain;">
+        <div class="ms-1 d-flex flex-column justify-content-center" style="margin-top: 10px;"> 
         <h3 class="m-0" style="font-weight: bold; color: white; font-size: 22px; font-family: 'Saira', sans-serif;">Knit Bytes</h3>
         <small style="font-size: 10px; color: white; opacity: 0.9; font-family: 'Saira', sans-serif; margin-left: 14px;">Digital Solutions</small>
     </div>
-</a>
+       </a>
 
 
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-            <span class="fa fa-bars"></span>
+        <span class="fa fa-bars"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav mx-auto py-0">
@@ -117,7 +112,6 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
                 <a href="contactus.php" class="nav-item nav-link">Contact</a>
             </div>
             <a href="contact.php" class="btn rounded-pill py-2 px-4 ms-3" style="background-color: #FBA504">Apply For Internship</a>
-
         </div>
     </nav>
 </div>
@@ -125,21 +119,22 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 
           
           <?php 
-$u_qry = $conn->query("SELECT * FROM users WHERE id = 1");
-foreach ($u_qry->fetch_array() as $k => $v) {
-    if (!is_numeric($k)) {
-        $user[$k] = $v;
-    }
-}
-$c_qry = $conn->query("SELECT * FROM contacts");
-while ($row = $c_qry->fetch_assoc()) {
-    $contact[$row['meta_field']] = $row['meta_value'];
-}
-?>
-<div class="container-fluid bg-light hero-header pb-5 ">
+           $u_qry = $conn->query("SELECT * FROM users WHERE id = 1");
+           foreach ($u_qry->fetch_array() as $k => $v) {
+           if (!is_numeric($k)) {
+           $user[$k] = $v;
+           }
+          }
+            $c_qry = $conn->query("SELECT * FROM contacts");
+            while ($row = $c_qry->fetch_assoc()) {
+            $contact[$row['meta_field']] = $row['meta_value'];
+           }
+         ?>
+
+    <div class="container-fluid bg-light hero-header pb-5 ">
     <div class="container px-lg-6">
-        <div class="row g-5 align-items-center">
-        <div class="col-lg-6 text-center text-lg-start" style=" font-family: 'Saira', sans-serif;">
+    <div class="row g-5 align-items-center">
+    <div class="col-lg-6 text-center text-lg-start" style=" font-family: 'Saira', sans-serif;">
     <h1 class="text-black pb-3 animated slideInDown" style=" font-family: 'Saira', sans-serif;">
         <?php echo $_settings->info('name') ?>
     </h1>
@@ -148,13 +143,11 @@ while ($row = $c_qry->fetch_assoc()) {
     </p>
     <a href="service.php" class="btn btn-primary py-sm-3 px-sm-5 rounded-pill me-3 animated slideInLeft" style="font-family: 'Saira', sans-serif; background-color: #022b60; border-color: #022b60;">
     Read More
-</a>
-<a href="contact.php" class="btn btn-primary py-sm-3 px-sm-5 rounded-pill animated slideInRight" style="font-family: 'Saira', sans-serif; background-color: #022b60; border-color: #022b60;">
+    </a>
+    <a href="contact.php" class="btn btn-primary py-sm-3 px-sm-5 rounded-pill animated slideInRight" style="font-family: 'Saira', sans-serif; background-color: #022b60; border-color: #022b60;">
     Contact Us
-</a>
-
-</div>
-
+    </a>
+    </div>
             <div class="col-lg-6 text-center"> 
                 <img src="<?php echo validate_image($_settings->info('banner')); ?>" alt="Banner Image" class="hero-image img-fluid">
             </div>
@@ -162,11 +155,7 @@ while ($row = $c_qry->fetch_assoc()) {
     </div>
 </div>
 
-        <!-- Navbar & Hero End -->
 
-
-     <!-- Feature Start -->
-<!-- Feature Start -->
 <div class="container-fluid py-5">
     <div class="container-fluid py-5 px-lg-5">
         <div class="wow fadeInUp" data-wow-delay="0.1s">
@@ -175,22 +164,17 @@ while ($row = $c_qry->fetch_assoc()) {
             </p>
             <h1 class="text-center mb-5" style=" font-family: 'Saira', sans-serif;">What Solutions We Provide</h1>
         </div>
-
-        <!-- Swiper Slider -->
         <div class="swiper mySwiper">
             <div class="swiper-wrapper">
                 <?php 
-                    // Fetch services from the database
                     $e_qry = $conn->query("SELECT * FROM services ORDER BY title ASC");
                     while($row = $e_qry->fetch_assoc()):
                 ?>
                 <div class="swiper-slide">
                     <div class="feature-item bg-light rounded text-center p-4 shadow">
-                        <!-- Dynamically fetch and display the icon or image -->
                         <img src="<?php echo validate_image($row['file_path']) ?>" 
                              alt="<?php echo $row['title'] ?>" class="img-fluid mb-4" 
                              style="width: 300px; height: 200px;">
-                        
                              <h5 class="mb-3" style="font-family: 'Saira', sans-serif;"><?php echo $row['title']; ?></h5>
 
                         
@@ -199,41 +183,37 @@ while ($row = $c_qry->fetch_assoc()) {
                 </div>
                 <?php endwhile; ?>
             </div>
-
-            <!-- Swiper Pagination -->
             <div class="swiper-pagination"></div>
         </div>
     </div>
 </div>
 
-<!-- Include Swiper CSS & JS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
 <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 
-<!-- Initialize Swiper with Responsive Settings -->
 <script>
-    var swiper = new Swiper(".mySwiper", {
-        slidesPerView: 2,  // Default: Show 2 slides
-        spaceBetween: 30,  
-        loop: true,  
-        autoplay: {
-            delay: 2000,  // Slower transition: 5 seconds per slide
-            disableOnInteraction: false,
-        },
-        speed: 1200,  // Smooth transition speed
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-        },
-        breakpoints: {
-            1200: { slidesPerView: 2, spaceBetween: 30 },  // Large screens
-            768: { slidesPerView: 1, spaceBetween: 20 },   // Tablets
-            480: { slidesPerView: 1, spaceBetween: 15 }    // Mobile screens
-        }
-    });
+   var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 3,  
+    spaceBetween: 30,  
+    loop: true,  
+    autoplay: {
+        delay: 2000,  
+        disableOnInteraction: false,
+    },
+    speed: 1200,  
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+    breakpoints: {
+        1200: { slidesPerView: 3, spaceBetween: 30 }, 
+        768: { slidesPerView: 2, spaceBetween: 20 },   
+        480: { slidesPerView: 1, spaceBetween: 15 }    
+    }
+});
+
 </script>
 
-<!-- Custom CSS for Swiper (Mobile-Friendly) -->
 <style>
 .swiper {
     width: 100%;
@@ -243,6 +223,7 @@ while ($row = $c_qry->fetch_assoc()) {
 .swiper-slide {
     display: flex;
     justify-content: center;
+    width: 100%;  
 }
 
 .feature-item {
@@ -251,33 +232,53 @@ while ($row = $c_qry->fetch_assoc()) {
     border-radius: 10px;
     background-color: #f9f9f9;
     padding: 20px;
+    box-sizing: border-box;
 }
-
-/* Mobile Adjustments */
-
 
 .swiper-slide-active .feature-item {
     opacity: 1;
-    transform: scale(1.05); /* Popup effect */
+    transform: scale(1.05);
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
 }
+
+@media (max-width: 767px) {
+    .swiper-slide {
+        width: 100% !important;  
+        box-sizing: border-box;  
+    }
+
+    .feature-item {
+        margin: 10px 0;  
+        width: 100%;  
+    }
+}
+
+
+.swiper-wrapper {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+}
+
+
+@media (max-width: 480px) {
+    .swiper-slide {
+        width: 100% !important; 
+    }
+}
+
 </style>
 
-
-<!-- Feature End -->
-
-
-
-        <!-- About Start -->
         <div class="container-fluid py-8 pb-3">
-    <div class="container py-5 px-lg-5">
+        <div class="container py-5 px-lg-5">
         <div class="row g-5 align-items-center">
             <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                 <p class="section-title text-secondary" style="font-family: 'Saira', sans-serif; margin-bottom: 100px;">About Us<span></span></p>
                 <h1 class="mb-5" style="font-family: 'Saira', sans-serif;">We are a leading IT solutions provider</h1>
-                <p class="mb-4"><?php include "about.html"; ?></p>
+                <p class="mb-4" style="font-family: 'Saira', sans-serif;">
+                <?php include "about.html"; ?>
+                </p>
 
-                <!-- Skill 1: Web Development -->
                 <div class="skill mb-4">
                     <div class="d-flex justify-content-between">
                         <p class="mb-2" style="font-family: 'Saira', sans-serif;">Web Development</p>
@@ -288,7 +289,6 @@ while ($row = $c_qry->fetch_assoc()) {
                     </div>
                 </div>
 
-                <!-- Skill 2: Software Development -->
                 <div class="skill mb-4">
                     <div class="d-flex justify-content-between">
                         <p class="mb-2" style="font-family: 'Saira', sans-serif;">Software Development</p>
@@ -299,7 +299,6 @@ while ($row = $c_qry->fetch_assoc()) {
                     </div>
                 </div>
 
-                <!-- Skill 3: Design & Development -->
                 <div class="skill mb-4">
                     <div class="d-flex justify-content-between">
                         <p class="mb-2" style="font-family: 'Saira', sans-serif;">Design & Development</p>
@@ -309,14 +308,10 @@ while ($row = $c_qry->fetch_assoc()) {
                         <div class="progress-bar" style="background-color: #FBA504; width: 95%;" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                 </div>
-
-                <!-- Read More Button -->
                 <a href="about.php" class="btn btn-primary py-sm-3 px-sm-5 rounded-pill mt-3" style="font-family: 'Saira', sans-serif; background-color: #022b60; border-color: #022b60; ">
                     Read More
                 </a>
             </div>
-
-            <!-- Image Section -->
             <div class="col-lg-6">
                 <img class="img-fluid wow zoomIn" data-wow-delay="0.5s" src="img/about.png" alt="About Us">
             </div>
@@ -324,10 +319,6 @@ while ($row = $c_qry->fetch_assoc()) {
     </div>
 </div>
 
-        <!-- About End -->
-
-
-        <!-- Facts Start -->
         <div class="container-fluid bg-white margin-top: -300px; fact py-5 wow fadeInUp" data-wow-delay="0.1s">
             <div class="container py-5 px-lg-5">
                 <div class="row g-4">
@@ -354,25 +345,16 @@ while ($row = $c_qry->fetch_assoc()) {
                 </div>
             </div>
         </div>
-        <!-- Facts End -->
-
-
-       
-
-        
-
 
         <div class="container-fluid py-5">
-    <div class="container py-5 px-lg-5">
+        <div class="container py-5 px-lg-5">
         <div class="text-center mb-5">
         <p class="section-title text-secondary justify-content-center" style=" font-family: 'Saira', sans-serif;margin-top: -100px;">
                 <span></span>Our Project<span></span>
             </p>
             <h1 class="fw-bold text" style="font-family: 'Saira', sans-serif;">Recently Completed Projects</h1>
         </div>
-        
         <div class="row g-4">
-            <!-- Project 1 -->
             <div class="col-lg-4 col-md-6">
                 <div class="card bg-light shadow-sm border-0 rounded">
                     <div class="position-relative">
@@ -396,7 +378,6 @@ while ($row = $c_qry->fetch_assoc()) {
                 </div>
             </div>
 
-            <!-- Project 2 -->
             <div class="col-lg-4 col-md-6">
                 <div class="card bg-light shadow-sm border-0 rounded">
                     <div class="position-relative">
@@ -417,7 +398,6 @@ while ($row = $c_qry->fetch_assoc()) {
                 </div>
             </div>
 
-            <!-- Project 3 -->
             <div class="col-lg-4 col-md-6">
                 <div class="card bg-light shadow-sm border-0 rounded">
                     <div class="position-relative">
@@ -451,19 +431,20 @@ while ($row = $c_qry->fetch_assoc()) {
         <h1 class="text-center mb-5">What Our Clients Say!</h1>
         <div class="owl-carousel testimonial-carousel">
             <?php 
-                // Fetch testimonials from the database
                 $qry = $conn->query("SELECT * FROM testimonials ORDER BY RAND()");
                 while($row = $qry->fetch_assoc()):
                     $row['message'] = html_entity_decode($row['message']);
+        
+                    // Replace the word 'Knit Bytes' with a link
+                    $row['message'] = str_replace('Knit Bytes', '<a href="https://knitbytes.com" target="_blank">Knit Bytes</a>', $row['message']);
             ?>
             <div class="testimonial-item bg-light rounded my-4">
                 <p class="fs-5 d-flex justify-content-left align-items-center">
-                    <i class="fa fa-quote-left fa-2x text-secondary me-2"></i> <!-- Left quote icon -->
+                    <i class="fa fa-quote-left fa-2x text-secondary me-2"></i> 
                     <?php echo $row['message']; ?>
                   
                 </p>
                 <div class="d-flex align-items-center">
-                    <!-- Dynamically fetching the image -->
                     <img class="img-fluid flex-shrink-0 rounded-circle" 
                          src="<?php echo validate_image($row['file_path']); ?>" 
                          alt="<?php echo $row['message_from']; ?>" 
@@ -490,42 +471,38 @@ while ($row = $c_qry->fetch_assoc()) {
 <script>
 $(document).ready(function(){
     $(".testimonial-carousel").owlCarousel({
-        items: 1,  // Show one item at a time
-        loop: true,  // Enable looping
-        autoplay: true,  // Enable autoplay
-        autoplayTimeout: 3000,  // Time between slides (5 seconds)
-        autoplayHoverPause: true,  // Pause on hover
-        autoplaySpeed: 1000,  // Transition speed (1 second)
-        nav: false,  // Disable default navigation
-        dots: true  // Enable dots navigation
+        items: 1,  
+        loop: true,  
+        autoplay: true,  
+        autoplayTimeout: 3000, 
+        autoplayHoverPause: true,  
+        autoplaySpeed: 1000,  
+        nav: false,  
+        dots: true  
     });
 });
 </script>
 
 <style>
     
-    
-
-    /* Apply 'Saira' font to section-title and h1 */
 .section-title, h1 {
     font-family: 'Saira', sans-serif;
 }
 
-    /* Testimonial Carousel Section */
 .testimonial-carousel {
     position: relative;
 }
-/* Apply Saira font to testimonial content */
+
 .testimonial-item p {
-    font-family: 'Saira', sans-serif; /* Apply font to the message text */
+    font-family: 'Saira', sans-serif; 
 }
 
 .testimonial-item h5 {
-    font-family: 'Saira', sans-serif; /* Apply font to the message author */
+    font-family: 'Saira', sans-serif; 
 }
 
 .testimonial-item span {
-    font-family: 'Saira', sans-serif; /* Apply font to the profession */
+    font-family: 'Saira', sans-serif; 
 }
 
 .testimonial-item {
@@ -548,15 +525,254 @@ $(document).ready(function(){
 }
 </style>
 
+            
 
+<!-- Chat Bubble (hidden initially) -->
+<div id="chatBubble" class="chat-bubble">
+    <button id="chatButton" class="btn btn-primary rounded-circle">
+        <i class="bi bi-chat-dots"></i> <!-- Bootstrap chat icon -->
+    </button>
+</div>
 
+<!-- Chatbox Container (hidden initially) -->
+<div id="chatboxContainer" class="chatbox-container">
+    <div id="chatboxHeader">
+        <h4>Chat with us!</h4>
+        <button id="closeChat" class="btn-close">&times;</button>
+    </div>
+    <div id="chatbox">
+        <div class="bot-message">Hello! How can I assist you today?</div>
+    </div>
+    <div id="chatInputArea">
+        <input type="text" id="userMessage" placeholder="Type your message..." />
+        <button id="sendButton" class="btn btn-primary">Send</button>
+    </div>
+</div>
 
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Custom CSS -->
+<style>
+    /* Chat Bubble (hidden initially) */
+    /* Chat Bubble (hidden initially) */
+.chat-bubble {
+    position: fixed;
+    bottom: 100px;  /* Adjusted to avoid overlapping */
+    right: 42px;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: pulse 1.5s infinite;  /* Pulsing effect */
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+    0% {
+        transform: scale(1);  /* Normal size */
+    }
+    50% {
+        transform: scale(1.1);  /* Slightly bigger */
+    }
+    100% {
+        transform: scale(1);  /* Back to normal size */
+    }
+}
+
+.chat-bubble .btn {
+    padding: 12px;  /* Reduced padding to fit the circular shape */
+    border-radius: 50%;  /* Ensures the button is circular */
+    font-size: 24px;
+    background-color: #007bff; /* Blue background */
+    color: white; /* Icon color */
+    box-shadow: 0px 0px 10px rgba(0, 123, 255, 0.5); /* Glow effect */
+    width: 60px; /* Fixed width */
+    height: 60px; /* Fixed height to make it perfectly circular */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Hover effect for the icon */
+.chat-bubble .btn:hover {
+    background-color: #0056b3; /* Darker blue when hovered */
+    box-shadow: 0px 0px 15px rgba(0, 123, 255, 0.8); /* Stronger glow */
+}
+
+    /* Chat Bubble Button Styling */
+    #chatButton {
+        padding: 15px;
+        border-radius: 50%;
+        font-size: 24px;
+        background-color:rgb(14, 201, 92);
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+
+    /* Chatbox Styling */
+    .chatbox-container {
+        position: fixed;
+        bottom: 95px;  /* Just above footer */
+        right: 30px;
+        width: 350px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+        display: none; /* Initially hidden */
+        flex-direction: column;
+        z-index: 9999;
+    }
+
+    /* Header of the chatbox */
+    #chatboxHeader {
+        padding: 10px;
+        background-color: #007bff;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    /* Chat Area */
+    #chatbox {
+        padding: 10px;
+        height: 300px;
+        overflow-y: auto;
+        background-color: #f8f9fa;
+    }
+
+    /* Message Styles */
+    .bot-message, .user-message {
+        margin: 10px 0;
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    .bot-message {
+        background-color: #d1ecf1;
+        text-align: left;
+    }
+
+    .user-message {
+        background-color: #c3e6cb;
+        text-align: right;
+    }
+
+    /* Input Area */
+    #chatInputArea {
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        border-top: 1px solid #ddd;
+    }
+
+    #chatInputArea input {
+        width: 80%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    #chatInputArea button {
+        padding: 10px;
+        margin-left: 10px;
+        border: none;
+        background-color: #007bff;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    #chatInputArea button:hover {
+        background-color: #0056b3;
+    }
+
+    /* Close Button */
+    #closeChat {
+        background: none;
+        border: none;
+        color: red;
+        font-size: 30px;
+        cursor: pointer;
+    }
+</style>
+
+<!-- Custom JavaScript -->
+<script>
+   document.getElementById("chatButton").addEventListener("click", function() {
+    var chatbox = document.getElementById("chatboxContainer");
+    chatbox.style.display = (chatbox.style.display === "none" || chatbox.style.display === "") ? "flex" : "none";
+});
+
+document.getElementById("closeChat").addEventListener("click", function() {
+    var chatbox = document.getElementById("chatboxContainer");
+    chatbox.style.display = "none";
+});
+
+document.getElementById("sendButton").addEventListener("click", function() {
+    sendMessage();
+});
+
+document.getElementById("userMessage").addEventListener("keydown", function(event) {
+    if (event.key === "Enter" && !event.shiftKey) {
+        event.preventDefault();  // Prevent new line from being inserted
+        sendMessage();
+    }
+});
+
+function sendMessage() {
+    var userMessage = document.getElementById("userMessage").value.trim();
+    if (userMessage !== "") {
+        addMessage(userMessage, "user-message");
+        generateBotResponse(userMessage);
+        document.getElementById("userMessage").value = "";  // Clear input
+    }
+}
+
+function addMessage(message, sender) {
+    var messageDiv = document.createElement("div");
+    messageDiv.classList.add(sender);
+    messageDiv.textContent = message;
+    document.getElementById("chatbox").appendChild(messageDiv);
+    scrollToBottom();
+}
+
+function generateBotResponse(userMessage) {
+    var botResponse = "";
+    var messageLower = userMessage.toLowerCase();
+    
+    if (messageLower.includes("hello") || messageLower.includes("hi")) {
+        botResponse = "Hello! How can I assist you today?";
+    } else if (messageLower.includes("how are you")) {
+        botResponse = "I'm doing great, thank you for asking!";
+    } else if (messageLower.includes("help")) {
+        botResponse = "Sure! How can I assist you?";
+    } else if (messageLower.includes("thank you")) {
+        botResponse = "You're welcome! Let me know if you need anything else.";
+    } else {
+        botResponse = "I'm sorry, I didn't quite understand. Could you please rephrase?";
+    }
+    
+    addMessage(botResponse, "bot-message");
+}
+
+function scrollToBottom() {
+    var chatbox = document.getElementById("chatbox");
+    chatbox.scrollTop = chatbox.scrollHeight;
+}
+
+</script>
 
         
         <div class="container-fluid bg-white text-light footer wow fadeIn" data-wow-delay="0.1s" style="font-family: 'Saira', sans-serif; margin-top: -60px;">
-    <div class="container-fluid py-3 px-lg-5">
+        <div class="container-fluid py-3 px-lg-5">
         <div class="row g-4">
-            <!-- Address Section (Left) -->
+            
             <div class="col-md-4">
                 <p class="section-title text-black h5 mb-4">Address<span></span></p>
                 <p style= "color:rgb(22, 130, 253);">
@@ -577,8 +793,8 @@ $(document).ready(function(){
                 </div>
             </div>
 
-                 <!-- Gallery Section (Centered) -->
-<div class="col-md-4 text-center">
+                 
+    <div class="col-md-4 text-center">
     <p class="section-title text-black h5 mb-4">Gallery<span></span></p>
     <div class="row g-2 justify-content-center">
         <div class="col-4">
@@ -602,33 +818,27 @@ $(document).ready(function(){
     </div>
 </div>
 
-<!-- Add this CSS to your styles -->
+
 <style>
-    /* Ensure all images have the same height while maintaining aspect ratio */
+
     .col-4 img {
         height: 100px;
-        width: 100px /* Set a constant height for all images */
-        object-fit: cover; /* Ensures the image covers the container without distorting */
-        border-radius: 8px;  /* Thin rounded corners */
-        border: 1px solid #ccc;  /* Optional: Thin border */
+        object-fit: cover; 
+        border-radius: 8px;  
+        border: 1px solid #ccc;  
     }
 </style>
 
-
-
-            <!-- Quick Links (Rightmost Position with Space) -->
             <div class="col-md-3 offset-md-1 text-md-end" style="margin-left: auto;">
-              
             <p class="section-title text-black h5 mb-4">Quick Link<span></span></p>
                 <a class="btn btn-link" href="about.php" style="color: black; text-decoration: none;">About Us</a>
-                <a class="btn btn-link" href="contact.php" style="color: black; text-decoration: none;">Contact Us</a>
+                <a class="btn btn-link" href="contactus.php" style="color: black; text-decoration: none;">Contact Us</a>
                 <a class="btn btn-link" href="contact.php" style="color: black; text-decoration: none;">Internship & Career</a>
             </div>
             </div>
         </div>
     </div>
 
-    <!-- Copyright Section -->
     <div class="container px-lg-5">
         <div class="copyright" style="color: black;">
             <div class="row">
@@ -649,15 +859,9 @@ $(document).ready(function(){
     </div>
 </div>
 
-
-        <!-- Footer End -->
-
-
-        <!-- Back to Top -->
         <a href="#" class="btn btn-lg btn-secondary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
 
-    <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="lib/wow/wow.min.js"></script>
@@ -667,10 +871,9 @@ $(document).ready(function(){
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="lib/isotope/isotope.pkgd.min.js"></script>
     <script src="lib/lightbox/js/lightbox.min.js"></script>
-                    <!-- Swiper JS -->
+                    
 <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 
-    <!-- Template Javascript -->
     <script src="js/main.js"></script>
 </body>
 

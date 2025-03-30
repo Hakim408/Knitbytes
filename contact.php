@@ -65,7 +65,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 </head>
 
 <body>
-    <div class="container-xxl bg-white p-0">
+    <div class="container-fluid bg-white p-0">
         <!-- Spinner Start -->
         <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
             <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
@@ -76,7 +76,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 
 
         <!-- Navbar & Hero Start -->
-        <div class="container-xxl position-relative p-0">
+        <div class="container-fluid position-relative p-0">
             <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0 container-fluid">
             <a href="index.php" class="navbar-brand p-0">
             <a href="index.php" class="navbar-brand p-0 d-flex align-items-center" style="min-height: 100px; max-height: none;">
@@ -120,7 +120,7 @@ while($row = $c_qry->fetch_assoc()){
 
 
   <!-- Contact Start -->
-<div class="container-xxl py-5">
+<div class="container-fluid py-5">
     <div class="container py-5 px-lg-5">
     <div class="container py-3 px-lg-5">
         <!-- Display Success/Error Message -->
@@ -462,7 +462,7 @@ while($row = $c_qry->fetch_assoc()){
               
             <p class="section-title text-black h5 mb-4">Quick Link<span></span></p>
                 <a class="btn btn-link" href="about.php" style="color: black; text-decoration: none;">About Us</a>
-                <a class="btn btn-link" href="contact.php" style="color: black; text-decoration: none;">Contact Us</a>
+                <a class="btn btn-link" href="contactus.php" style="color: black; text-decoration: none;">Contact Us</a>
                 <a class="btn btn-link" href="contact.php" style="color: black; text-decoration: none;">Internship & Career</a>
             </div>
             </div>

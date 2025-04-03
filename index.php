@@ -45,6 +45,26 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Knit Bytes offers cutting-edge IT solutions, including web development, software development, and digital solutions tailored to your business needs.">
+    <meta name="keywords" content="Knit Bytes, IT Solutions, Web Development, Software Development, Digital Solutions">
+    <meta name="author" content="Knit Bytes">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Knit Bytes - Leading IT Solutions Provider">
+    <meta property="og:description" content="Knit Bytes offers cutting-edge IT solutions, including web development, software development, and digital solutions tailored to your business needs.">
+    <meta property="og:image" content="img/banner.jpg">
+    <meta property="og:url" content="https://knitbytes.com">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Knit Bytes - Leading IT Solutions Provider">
+    <meta name="twitter:description" content="Knit Bytes offers cutting-edge IT solutions, including web development, software development, and digital solutions tailored to your business needs.">
+    <meta name="twitter:image" content="img/banner.jpg">
+     
+    <link rel="canonical" href="https://knitbytes.com">
 
 
     <link href="img/lg.png" rel="icon">
@@ -76,6 +96,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 </head>
 
 <body>
+    
     <div class="container-fluid bg-white p-0">
         <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
             <div class="spinner-grow " style="width: 3rem; height: 3rem;color: #022b60;" role="status">
@@ -193,7 +214,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 
 <script>
    var swiper = new Swiper(".mySwiper", {
-    slidesPerView: 3,  
+    slidesPerView: 3,  // Initially show 2 slides
     spaceBetween: 30,  
     loop: true,  
     autoplay: {
@@ -206,12 +227,26 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         clickable: true,
     },
     breakpoints: {
-        1200: { slidesPerView: 3, spaceBetween: 30 }, 
+        1200: { slidesPerView: 3, spaceBetween: 30 }, // After first slide, show 3 slides
         768: { slidesPerView: 2, spaceBetween: 20 },   
         480: { slidesPerView: 1, spaceBetween: 15 }    
+    },
+    slidesPerGroup: 1, // Move one slide at a time
+    on: {
+        init: function () {
+            let slides = document.querySelectorAll(".swiper-slide");
+            slides.forEach((slide, index) => {
+                if (index < 2) { // Initially apply the effect to the first two slides
+                    slide.classList.add("swiper-slide-visible");
+                }
+            });
+        },
+        slideChangeTransitionEnd: function () {
+            this.params.slidesPerView = 3; // After the first slide, show 3 slides
+            this.update();
+        }
     }
 });
-
 </script>
 
 <style>
@@ -235,11 +270,17 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     box-sizing: border-box;
 }
 
-.swiper-slide-active .feature-item {
+.swiper-slide-active .feature-item,
+.swiper-slide-visible .feature-item {
     opacity: 1;
     transform: scale(1.05);
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
 }
+
+
+
+
+
 
 @media (max-width: 767px) {
     .swiper-slide {
@@ -525,16 +566,13 @@ $(document).ready(function(){
 }
 </style>
 
-            
 
-<!-- Chat Bubble (hidden initially) -->
 <div id="chatBubble" class="chat-bubble">
     <button id="chatButton" class="btn btn-primary rounded-circle">
-        <i class="bi bi-chat-dots"></i> <!-- Bootstrap chat icon -->
+        <i class="bi bi-chat-dots"></i> 
     </button>
 </div>
 
-<!-- Chatbox Container (hidden initially) -->
 <div id="chatboxContainer" class="chatbox-container">
     <div id="chatboxHeader">
         <h4>Chat with us!</h4>
@@ -548,6 +586,24 @@ $(document).ready(function(){
         <button id="sendButton" class="btn btn-primary">Send</button>
     </div>
 </div>
+
+<script>
+    
+    document.getElementById('sendButton').addEventListener('click', function() {
+        var userMessage = document.getElementById('userMessage').value.trim();
+
+        if (userMessage) {
+            var encodedMessage = encodeURIComponent(userMessage);
+            var whatsappLink = 'https://wa.me/9779767981534?text=' + encodedMessage;
+            console.log('Redirecting to WhatsApp with link: ' + whatsappLink); 
+            window.location.href = whatsappLink;
+            document.getElementById('chatboxContainer').style.display = 'none';
+        } else {
+            alert('Please type a message before sending.');
+        }
+    });
+</script>
+
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"></script>
@@ -629,7 +685,7 @@ $(document).ready(function(){
     /* Header of the chatbox */
     #chatboxHeader {
         padding: 10px;
-        background-color: #007bff;
+        background-color: #022b60;
         color: white;
         display: flex;
         justify-content: space-between;
@@ -638,12 +694,17 @@ $(document).ready(function(){
         border-top-right-radius: 10px;
     }
 
+    #chatboxHeader h4 {
+    color: white; /* Ensure the header text is white */
+}
+
+
     /* Chat Area */
     #chatbox {
         padding: 10px;
         height: 300px;
         overflow-y: auto;
-        background-color: #f8f9fa;
+        background-color:rgb(229, 235, 227);
     }
 
     /* Message Styles */
@@ -654,8 +715,9 @@ $(document).ready(function(){
     }
 
     .bot-message {
-        background-color: #d1ecf1;
+        background-color:rgb(13, 212, 73);
         text-align: left;
+        color: white;
     }
 
     .user-message {
@@ -682,7 +744,7 @@ $(document).ready(function(){
         padding: 10px;
         margin-left: 10px;
         border: none;
-        background-color: #007bff;
+        background-color: #022b60;
         color: white;
         border-radius: 5px;
         cursor: pointer;
@@ -696,7 +758,7 @@ $(document).ready(function(){
     #closeChat {
         background: none;
         border: none;
-        color: red;
+        color: white;
         font-size: 30px;
         cursor: pointer;
     }
@@ -743,23 +805,25 @@ function addMessage(message, sender) {
 }
 
 function generateBotResponse(userMessage) {
-    var botResponse = "";
-    var messageLower = userMessage.toLowerCase();
-    
-    if (messageLower.includes("hello") || messageLower.includes("hi")) {
-        botResponse = "Hello! How can I assist you today?";
-    } else if (messageLower.includes("how are you")) {
-        botResponse = "I'm doing great, thank you for asking!";
-    } else if (messageLower.includes("help")) {
-        botResponse = "Sure! How can I assist you?";
-    } else if (messageLower.includes("thank you")) {
-        botResponse = "You're welcome! Let me know if you need anything else.";
-    } else {
-        botResponse = "I'm sorry, I didn't quite understand. Could you please rephrase?";
-    }
-    
-    addMessage(botResponse, "bot-message");
+    addMessage("Typing...", "bot-message");  // Show typing indicator
+
+    fetch("chatbot.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: userMessage })
+    })
+    .then(response => response.json())
+    .then(data => {
+        document.querySelector(".bot-message:last-child").remove();  // Remove "Typing..." message
+        addMessage(data.response, "bot-message"); // Show AI's response
+    })
+    .catch(error => {
+        document.querySelector(".bot-message:last-child").remove();
+        addMessage("Sorry, there was an error.", "bot-message");
+        console.error("Error:", error);
+    });
 }
+
 
 function scrollToBottom() {
     var chatbox = document.getElementById("chatbox");

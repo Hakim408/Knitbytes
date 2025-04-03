@@ -204,7 +204,7 @@ h6,
 
 /* When the navbar menu is opened on mobile devices */
 .navbar-collapse.show {
-    background-color: #022b60 !important; /* Background color when menu is open */
+    background-color: #fbfcfd !important; /* Background color when menu is open */
 }
 
 .navbar-light .navbar-nav .nav-link {

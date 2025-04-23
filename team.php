@@ -162,7 +162,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 
         <!-- Navbar & Hero Start -->
         <div class="container-fluid position-relative p-0">
-            <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0 container-fluid">
+            <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0 container-fluid" >
             <a href="index.php" class="navbar-brand p-0 d-flex align-items-center" style="min-height: 100px; max-height: none;">
     <img src="<?php echo validate_image($_settings->info('logo')) ?>" 
          alt="Logo" 
@@ -202,8 +202,138 @@ while ($row = $c_qry->fetch_assoc()) {
     $contact[$row['meta_field']] = $row['meta_value'];
 }
 ?>
-       <!-- Team Section -->
-    <div class="container">
+     <!-- Team Section -->
+<style>
+  .team-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 60px 20px;
+    font-family: 'Saira', sans-serif;
+  }
+
+  .team-container h1 {
+    text-align: center;
+    color: #022b60;
+    font-size: 36px;
+    margin-bottom: 40px;
+  }
+
+  .team-row-modern {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+  }
+
+  .team-card {
+    background: linear-gradient(145deg, #0f3c64, #072448);
+    color: #ffffff;
+    border-radius: 20px;
+    padding: 30px 20px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .team-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  }
+
+  .avatar {
+    background-color: #fff;
+    color: #0f3c64;
+    width: 70px;
+    height: 70px;
+    font-weight: bold;
+    font-size: 22px;
+    border-radius: 50%;
+    line-height: 70px;
+    margin: 0 auto 15px auto;
+  }
+
+  .team-card h3 {
+    margin: 10px 0 5px;
+    font-size: 20px;
+    color: white;
+  }
+
+  .role {
+    font-style: italic;
+    font-size: 14px;
+    color: #d1d1d1;
+  }
+
+  .socials {
+    margin-top: 15px;
+  }
+
+  .socials a {
+    color: #fff;
+    margin: 0 8px;
+    font-size: 18px;
+    transition: color 0.3s ease;
+  }
+
+  .socials a:hover {
+    color: #1da1f2;
+  }
+  .team-card {
+  color: white;
+}
+
+.team-card .socials a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid white;
+  border-radius: 6px; /* Rounded edge rectangle */
+  margin: 0 5px;
+  text-decoration: none;
+  color: white;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+/* Facebook */
+.team-card .socials a:nth-child(1):hover {
+  background-color: #1877F2;
+  border-color: #1877F2;
+}
+.team-card .socials a:nth-child(1):hover .fa-facebook-f {
+  color: white;
+}
+
+/* Twitter */
+.team-card .socials a:nth-child(2):hover {
+  background-color: #1DA1F2;
+  border-color: #1DA1F2;
+}
+.team-card .socials a:nth-child(2):hover .fa-twitter {
+  color: white;
+}
+
+/* Instagram */
+.team-card .socials a:nth-child(3):hover {
+  background-color: #E1306C;
+  border-color: #E1306C;
+}
+.team-card .socials a:nth-child(3):hover .fa-instagram {
+  color: white;
+}
+
+/* LinkedIn */
+.team-card .socials a:nth-child(4):hover {
+  background-color: #0077B5;
+  border-color: #0077B5;
+}
+.team-card .socials a:nth-child(4):hover .fa-linkedin-in {
+  color: white;
+}
+
+</style>
+
+<div class="container">
     <div class="wow fadeInUp" data-wow-delay="0.1s"  >
     <p class="section-title text-secondary" style="    min-height: 300px
     ;
@@ -216,106 +346,122 @@ while ($row = $c_qry->fetch_assoc()) {
             Our Team Members
         </h1>
     </div>
+  <div class="team-row-modern">
 
-        <div class="team-row">
-            
-            
-
-            <div class="team-item hidden">
-                <div class="team-initials">RD</div> <!-- <img src="image.jpg" alt="Roshan Dhakal" class="team-image"> -->
-                <p class="team-name">Roshan Dhakal</p>
-                <p class="team-role">CTO</p>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-            </div>
-            <div class="team-item hidden">
-                <div class="team-initials">SK</div> 
-                <p class="team-name">Suman Khadka</p>
-                <p class="team-role">Team Lead</p>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-            </div>
-            <div class="team-item hidden">
-                <div class="team-initials">KG</div> 
-                <p class="team-name">Krinjal Ghale</p>
-                <p class="team-role">QA</p>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-            </div>
-            <div class="team-item hidden">
-                <i class="fas fa-user-tie team-icon"></i> 
-                <p class="team-name">Niraj Gautam</p>
-                <p class="team-role">Web Developer</p>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-            </div>
-            <div class="team-item hidden">
-                <i class="fas fa-user-tie team-icon"></i> 
-                <p class="team-name">Hakim Raut</p>
-                <p class="team-role">Web Developer</p>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-            </div>
-            <div class="team-item hidden">
-                <i class="fas fa-user-tie team-icon"></i> 
-                <p class="team-name">Sulav Khadka</p>
-                <p class="team-role">Front End Designer (intern)</p>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-            </div>
-
-            <!-- Team Member 2 -->
-            <div class="team-item hidden">
-                <i class="fas fa-user-tie team-icon"></i> 
-                <p class="team-name">Milan Sunar</p>
-                <p class="team-role">Digital Marketing (intern)</p>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-            </div>
-
-            <!-- Team Member 3 -->
-            <div class="team-item hidden">
-            <i class="fas fa-user-tie team-icon"></i>
-                <p class="team-name">Ashish Khadka</p>
-                <p class="team-role">Backend Developer (intern)</p>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-            </div>
-        </div>
-        
+    <div class="team-card">
+      <div class="avatar">RD</div>
+      <h3>Roshan Dhakal</h3>
+      <p class="role">CTO</p>
+      <div class="socials">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      </div>
     </div>
+
+    <div class="team-card">
+      <div class="avatar">SK</div>
+      <h3>Suman Khadka</h3>
+      <p class="role">Team Lead</p>
+      <div class="socials">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <div class="avatar">KG</div>
+      <h3>Krinjal Ghale</h3>
+      <p class="role">QA</p>
+      <div class="socials">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <div class="avatar">BB</div>
+      <h3>Bikash Bhatt Chhetri</h3>
+      <p class="role">Co-founder/Business Manager</p>
+      <div class="socials">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <div class="avatar"><i class="fas fa-user-tie"></i></div>
+      <h3>Niraj Gautam</h3>
+      <p class="role">Web Developer</p>
+      <div class="socials">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <div class="avatar"><i class="fas fa-user-tie"></i></div>
+      <h3>Hakim Raut</h3>
+      <p class="role">Web Developer</p>
+      <div class="socials">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <div class="avatar"><i class="fas fa-user-tie"></i></div>
+      <h3>Sulav Khadka</h3>
+      <p class="role">Front End Designer (Intern)</p>
+      <div class="socials">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <div class="avatar"><i class="fas fa-user-tie"></i></div>
+      <h3>Milan Sunar</h3>
+      <p class="role">Digital Marketing (Intern)</p>
+      <div class="socials">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <div class="avatar"><i class="fas fa-user-tie"></i></div>
+      <h3>Ashish Khadka</h3>
+      <p class="role">Backend Developer (Intern)</p>
+      <div class="socials">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Include FontAwesome CDN for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
         <!-- Team End -->
         
 

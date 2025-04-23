@@ -260,14 +260,16 @@ while($row = $c_qry->fetch_assoc()){
                 <label for="message" class="text-black" style="font-family: 'Saira', sans-serif;">Message</label>
                 <textarea class="form-control" id="message" name="message" required rows="4" style="font-family: 'Saira', sans-serif;"></textarea>
             </div>
-
+            <div class="g-recaptcha" data-sitekey="6Lc0aCArAAAAAH2AdLSqZIgwZG5IlD_xGqVu0Wh2"></div>
                     <!-- Submit Button -->
                     <div class="text-center">
                         <button type="submit" class="btn btn-primary" style="font-family: 'Saira', sans-serif; font-weight: bold; padding: 10px 30px;">
                             Send Query
                         </button>
+
                     </div>
                 </form>
+                <script src="https://www.google.com/recaptcha/api.js" async defer></script>
             </div>
         </div>
     </div>

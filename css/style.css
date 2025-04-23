@@ -403,6 +403,11 @@ h6,
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
 }
 
+.btn-primary:hover {
+    background-color: #014171; /* Slightly darker shade on hover */
+    border-color: #014171;
+}
+
 .hero-header {
     margin-top: 0;
     margin-bottom: 3rem;
@@ -418,10 +423,7 @@ h6,
     background-repeat: no-repeat;
 }
 
-.hero-header#h1{
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    
-}
+
 
 /* Responsive Image */
 .hero-image {

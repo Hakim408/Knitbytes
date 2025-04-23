@@ -87,7 +87,27 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script>
+         // Function to scroll to the relevant section based on search query
+        function searchContent(event) {
+            event.preventDefault(); // Prevent the default form submission
 
+            var searchQuery = $('#search-bar').val().toLowerCase(); // Get the search query in lowercase
+
+            // Find the relevant section based on the search query
+            if (searchQuery) {
+                // Scroll to the section based on the search keyword
+                if (searchQuery.includes('service') || searchQuery.includes('web') || searchQuery.includes('digital') || searchQuery.includes('android') || searchQuery.includes('custom')) {
+                    $('html, body').animate({
+                        scrollTop: $('#services').offset().top
+                    }, 500); // Smooth scroll to the services section
+                } else {
+                    alert('No relevant section found for your search.');
+                }
+            }
+        }
+        
+    </script>
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -132,8 +152,29 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
                 <a href="team.php" class="nav-item nav-link">Our Team</a>
                 <a href="contactus.php" class="nav-item nav-link">Contact</a>
             </div>
-            <a href="contact.php" class="btn rounded-pill py-2 px-4 ms-3" style="background-color: #FBA504">Apply For Internship</a>
-        </div>
+            <div class="d-flex ms-3 align-items-center">
+    <!-- Search Form -->
+    <div class="search-container position-relative">
+        <form onsubmit="searchContent(event)" class="d-flex align-items-center">
+            <!-- Search Input -->
+            <input type="text" class="form-control" id="search-bar" placeholder="Search for services..." 
+                   style="width: 250px; padding: 10px; border-radius: 20px;"/>
+            
+            <!-- Search Button with background color and overlapping -->
+            <button type="submit" class="btn" style="background-color: #FBA504; 
+                                                    border-radius: 20px; 
+                                                    padding: 10px 20px; 
+                                                    color: white;
+                                                    position: absolute;
+                                                    right: -10px; /* Adjusts overlap */
+                                                    top: 50%;
+                                                    transform: translateY(-50%);">
+                Search
+            </button>
+        </form>
+    </div>
+</div>
+
     </nav>
 </div>
 
@@ -175,137 +216,95 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         </div>
     </div>
 </div>
-
-
-<div class="container-fluid py-5">
-    <div class="container-fluid py-5 px-lg-5">
-        <div class="wow fadeInUp" data-wow-delay="0.1s">
-            <p class="section-title text-secondary justify-content-center" style=" font-family: 'Saira', sans-serif;margin-top: -5px;">
-                <span></span>Our Services<span></span>
-            </p>
-            <h1 class="text-center mb-5" style=" font-family: 'Saira', sans-serif;">What Solutions We Provide</h1>
-        </div>
-        <div class="swiper mySwiper">
-            <div class="swiper-wrapper">
-                <?php 
-                    $e_qry = $conn->query("SELECT * FROM services ORDER BY title ASC");
-                    while($row = $e_qry->fetch_assoc()):
-                ?>
-                <div class="swiper-slide">
-                    <div class="feature-item bg-light rounded text-center p-4 shadow">
-                        <img src="<?php echo validate_image($row['file_path']) ?>" 
-                             alt="<?php echo $row['title'] ?>" class="img-fluid mb-4" 
-                             style="width: 300px; height: 200px;">
-                             <h5 class="mb-3" style="font-family: 'Saira', sans-serif;"><?php echo $row['title']; ?></h5>
-
-                        
-
-                    </div>
-                </div>
-                <?php endwhile; ?>
-            </div>
-            <div class="swiper-pagination"></div>
-        </div>
+<div id="services" class="container-fluid py-5 bg-white">
+  <div class="container py-5 px-lg-5">
+    <div class="text-center mb-5">
+      <p class="section-title text-secondary justify-content-center" style="font-family: 'Saira', sans-serif;">
+        <span></span>Our Services<span></span>
+      </p>
+      <h1 style="font-family: 'Saira', sans-serif;">What Solutions We Provide</h1>
     </div>
+
+    <div class="row g-4">
+      <?php 
+        $e_qry = $conn->query("SELECT * FROM services ORDER BY title ASC");
+        while($row = $e_qry->fetch_assoc()):
+      ?>
+        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+          <div class="service-card h-100 text-center p-3">
+            <img src="<?php echo validate_image($row['file_path']) ?>" 
+                 alt="<?php echo $row['title'] ?>" 
+                 class="service-img mb-3">
+            <h6 class="service-title mb-0"><?php echo $row['title']; ?></h6>
+          </div>
+        </div>
+      <?php endwhile; ?>
+    </div>
+  </div>
 </div>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
-<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-
-<script>
-   var swiper = new Swiper(".mySwiper", {
-    slidesPerView: 3,  // Initially show 2 slides
-    spaceBetween: 30,  
-    loop: true,  
-    autoplay: {
-        delay: 2000,  
-        disableOnInteraction: false,
-    },
-    speed: 1200,  
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-    },
-    breakpoints: {
-        1200: { slidesPerView: 3, spaceBetween: 30 }, // After first slide, show 3 slides
-        768: { slidesPerView: 2, spaceBetween: 20 },   
-        480: { slidesPerView: 1, spaceBetween: 15 }    
-    },
-    slidesPerGroup: 1, // Move one slide at a time
-    on: {
-        init: function () {
-            let slides = document.querySelectorAll(".swiper-slide");
-            slides.forEach((slide, index) => {
-                if (index < 2) { // Initially apply the effect to the first two slides
-                    slide.classList.add("swiper-slide-visible");
-                }
-            });
-        },
-        slideChangeTransitionEnd: function () {
-            this.params.slidesPerView = 3; // After the first slide, show 3 slides
-            this.update();
-        }
-    }
-});
-</script>
-
 <style>
-.swiper {
-    width: 100%;
-    padding: 40px 0;
+/* Container styling */
+.service-card {
+  background: #022b60;
+  border-radius: 15px;
+  border: none;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  font-family: 'Saira', sans-serif;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 
-.swiper-slide {
-    display: flex;
-    justify-content: center;
-    width: 100%;  
+/* Hover effect with slight 3D effect */
+.service-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 18px 30px rgba(0, 0, 0, 0.2);
+  background-color: #014080;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
-.feature-item {
-    transition: transform 1s ease-in-out, opacity 1s ease-in-out;
-    opacity: 0.9;
-    border-radius: 10px;
-    background-color: #f9f9f9;
-    padding: 20px;
-    box-sizing: border-box;
+/* Image styling with subtle hover effect */
+.service-img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid white; /* Default white border */
+  transition: transform 0.3s ease, border-color 0.3s ease; /* Added transition for border-color */
 }
 
-.swiper-slide-active .feature-item,
-.swiper-slide-visible .feature-item {
-    opacity: 1;
-    transform: scale(1.05);
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+/* Hover effect on image */
+.service-card:hover .service-img {
+  transform: scale(1.1);
+  border-color: #FBA504; /* Change border to text color on hover (gold in this case) */
 }
 
-
-
-
-
-
-@media (max-width: 767px) {
-    .swiper-slide {
-        width: 100% !important;  
-        box-sizing: border-box;  
-    }
-
-    .feature-item {
-        margin: 10px 0;  
-        width: 100%;  
-    }
+/* Title styling */
+.service-title {
+  font-size: 1rem;
+  color: #ffffff;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
 }
 
-
-.swiper-wrapper {
-    display: flex;
-    width: 100%;
-    overflow: hidden;
+/* Hover effect on title */
+.service-card:hover .service-title {
+  color: #FBA504;
 }
 
-
-@media (max-width: 480px) {
-    .swiper-slide {
-        width: 100% !important; 
-    }
+/* Responsive Grid */
+@media (max-width: 576px) {
+  .service-card {
+    padding: 20px 15px;
+    min-height: 200px;
+  }
 }
 
 </style>
@@ -402,7 +401,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
                     <img src="img/wd.png" class="img-fluid rounded-top" alt="College Website" >
 
                         <div class="portfolio-overlay d-flex justify-content-center align-items-center">
-                            <a class="btn btn-outline-dark btn-sm mx-1" href="img/drms1.PNG" data-lightbox="portfolio">
+                            <a class="btn btn-outline-dark btn-sm mx-1" href="img/drms.jpg" data-lightbox="portfolio">
                             
                                 <i class="fa fa-eye"></i>
                             </a>
@@ -433,7 +432,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
                         </div>
                     </div>
                     <div class="card-body text-center">
-                        <h5 class="fw-bold  " style="font-family: 'Saira', sans-serif; color: #022b60;">Shankhya Solution</h5>
+                        <h5 class="fw-bold  " style="font-family: 'Saira', sans-serif; color: #022b60;">Sankhya Solution</h5>
                         <p class="text-muted mb-2" style="font-family: 'Saira', sans-serif;">Software Development</p>
                     </div>
                 </div>
@@ -468,19 +467,17 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 
 <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s" style="margin-bottom: 100px;">
     <div class="container py-5 px-lg-5">
-        <p class="section-title text-secondary justify-content-center"><span></span>Testimonial<span></span></p>
-        <h1 class="text-center mb-5">What Our Clients Say!</h1>
+        <p class="section-title text-secondary justify-content-center" style="font-family: 'Saira', sans-serif;"><span></span>Testimonial<span></span></p>
+        <h1 class="text-center mb-5" style="font-family: 'Saira', sans-serif;">What Our Clients Say!</h1>
         <div class="owl-carousel testimonial-carousel">
             <?php 
                 $qry = $conn->query("SELECT * FROM testimonials ORDER BY RAND()");
                 while($row = $qry->fetch_assoc()):
                     $row['message'] = html_entity_decode($row['message']);
-        
-                    // Replace the word 'Knit Bytes' with a link
                     $row['message'] = str_replace('Knit Bytes', '<a href="https://knitbytes.com" target="_blank">Knit Bytes</a>', $row['message']);
             ?>
             <div class="testimonial-item bg-light rounded my-4">
-                <p class="fs-5 d-flex justify-content-left align-items-center">
+                <p class="fs-5 d-flex justify-content-left align-items-center" style="font-family: 'Saira', sans-serif;">
                     <i class="fa fa-quote-left fa-2x text-secondary me-2"></i> 
                     <?php echo $row['message']; ?>
                   
@@ -492,7 +489,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
                          style="width: 65px; height: 65px;">
 
                     <div class="ps-4">
-                        <h5 class="mb-1"><?php echo $row['message_from']; ?></h5>
+                        <h5 class="mb-1" style="font-family: 'Saira', sans-serif;"><?php echo $row['message_from']; ?></h5>
                         <span><?php echo isset($row['profession']) ? $row['profession'] : 'Client'; ?></span>
                     </div>
                 </div>
@@ -805,7 +802,7 @@ function addMessage(message, sender) {
 }
 
 function generateBotResponse(userMessage) {
-    addMessage("Typing...", "bot-message");  // Show typing indicator
+    addMessage("Typing...", "bot-message"); 
 
     fetch("chatbot.php", {
         method: "POST",
@@ -814,8 +811,8 @@ function generateBotResponse(userMessage) {
     })
     .then(response => response.json())
     .then(data => {
-        document.querySelector(".bot-message:last-child").remove();  // Remove "Typing..." message
-        addMessage(data.response, "bot-message"); // Show AI's response
+        document.querySelector(".bot-message:last-child").remove(); 
+        addMessage(data.response, "bot-message"); 
     })
     .catch(error => {
         document.querySelector(".bot-message:last-child").remove();
@@ -925,6 +922,83 @@ function scrollToBottom() {
 
         <a href="#" class="btn btn-lg btn-secondary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
+     <!-- Vacancy Modal -->
+
+<div class="modal fade" id="vacancyModal" tabindex="-1" aria-labelledby="vacancyModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content vacancy-animated" style="font-family: 'Saira', sans-serif;">
+      <div class="modal-header border-0">
+        <h5 class="modal-title" id="vacancyModalLabel" style="font-weight: 600;">
+          📢 Job Vacancy Open
+        </h5>
+        <button type="button" class="custom-close" data-bs-dismiss="modal" aria-label="Close" title="Cancel">&times;</button>
+      </div>
+      <div class="modal-body text-dark" style="line-height: 1.7;">
+        <p>
+          We are currently looking for passionate and skilled individuals to join our team. 
+          If you're interested in networking field such as Network Administrator,Security Analyst,Network Analyst, please send your resume or inquiries to:
+        </p>
+        <p style="font-weight: bold; color: #022b60;">
+          📧 <a href="mailto:info@knitbytes.com" style="text-decoration: none; color: #022b60;">info@knitbytes.com</a>
+        </p>
+        <p style="font-size: 0.9rem; color: #666;">
+          * Please include the position you are applying for in the subject line.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .vacancy-animated {
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    animation: bounceIn 0.7s ease-out;
+    background: #fff;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .vacancy-animated:hover {
+    transform: scale(1.02);
+  }
+
+  @keyframes bounceIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.95) translateY(-20px);
+    }
+    60% {
+      opacity: 1;
+      transform: scale(1.05) translateY(10px);
+    }
+    100% {
+      transform: scale(1) translateY(0);
+    }
+  }
+
+  .custom-close {
+    font-size: 1.5rem;
+    color: #022b60;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-top: -10px;
+    margin-right: -10px;
+  }
+
+  .modal-content a:hover {
+    text-decoration: underline;
+  }
+</style>
+
+
+
+<script>
+  window.addEventListener('load', function() {
+    var vacancyModal = new bootstrap.Modal(document.getElementById('vacancyModal'));
+    vacancyModal.show();
+  });
+</script>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>

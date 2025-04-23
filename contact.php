@@ -299,7 +299,7 @@ while($row = $c_qry->fetch_assoc()){
                         <label for="apply_for" class="text-black">Internship Position Applied For</label>
                         <input type="text" class="form-control" id="apply_for" name="apply_for" required placeholder="E.g., Frontend Developer, Backend Developer, Marketing Intern">
                     </div>
-
+                    <div class="g-recaptcha" data-sitekey="6Lc0aCArAAAAAH2AdLSqZIgwZG5IlD_xGqVu0Wh2" ></div>
                     <!-- Submit Button -->
                     <div class="text-center">
                         <button type="submit" class="btn btn-primary" style="font-family: 'Saira', sans-serif; font-weight: bold; padding: 10px 30px;">
@@ -307,6 +307,7 @@ while($row = $c_qry->fetch_assoc()){
                         </button>
                     </div>
                 </form>
+                <script src="https://www.google.com/recaptcha/api.js" async defer></script>
             </div>
         </div>
     </div>

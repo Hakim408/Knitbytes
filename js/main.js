@@ -47,6 +47,26 @@
     // Close menu when clicking a menu item (optional for better UX)
     $('.navbar-nav .nav-link').on('click', function () {
         $('.navbar-collapse').removeClass('show');
+
+        // Remove active class from all links
+        $('.navbar-nav .nav-link').removeClass('active');
+
+        // Add active class to the clicked link
+        $(this).addClass('active');
+    });
+
+    // Highlight the active menu item on page load (based on URL)
+    $(document).ready(function () {
+        var currentUrl = window.location.href;
+
+        $('.navbar-nav .nav-link').each(function () {
+            if (this.href === currentUrl) {
+                $('.navbar-nav .nav-link').removeClass('active'); // Remove from all
+                $(this).addClass('active'); // Add to the matched link
+            }
+        });
     });
 
 })(jQuery);
+
+

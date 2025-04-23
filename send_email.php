@@ -9,6 +9,21 @@ require 'PHPMailer/src/PHPMailer.php';
 require 'PHPMailer/src/SMTP.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // CAPTCHA Verification
+    $recaptcha_secret = '6Lc0aCArAAAAANNp6ES53IPMrmLl5zAu18iL38HG';  
+    $recaptcha_response = $_POST['g-recaptcha-response'];
+
+    // Verify the CAPTCHA response with Google
+    $verify = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret={$recaptcha_secret}&response={$recaptcha_response}");
+    $captcha_success = json_decode($verify);
+
+    if (!$captcha_success->success) {
+        $_SESSION['message'] = "<div class='alert alert-danger'>Captcha verification failed. Please try again.</div>";
+        header("Location: " . $_SERVER['HTTP_REFERER']);
+        exit();
+    }
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST['full_name'];
     $email = $_POST['email'];
     $phone = $_POST['phone_number'];
@@ -72,6 +87,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Redirect back to the form page
     header("Location: " . $_SERVER['HTTP_REFERER']);
     exit();
+}
 }
 
 ?>

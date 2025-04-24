@@ -175,32 +175,47 @@ while ($row = $c_qry->fetch_assoc()) {
 
 
         <!-- Facts Start -->
-        <div class="container-fluid bg-white fact py-5 wow fadeInUp margin-top: 50px;" data-wow-delay="0.1s">
-            <div class="container py-5 px-lg-5">
-                <div class="row g-4">
-                    <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.1s">
-                        <i class="fa fa-certificate fa-3x text-secondary mb-3"></i>
-                        <h1 class="text-black mb-2" data-toggle="counter-up">1</h1>
-                        <p class="text-black mb-0" style=" font-family: 'Saira', sans-serif;">Years Experience</p>
-                    </div>
-                    <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.3s">
-                        <i class="fa fa-users-cog fa-3x text-secondary mb-3"></i>
-                        <h1 class="text-black mb-2" data-toggle="counter-up">5</h1>
-                        <p class="text-black mb-0" style=" font-family: 'Saira', sans-serif;">Team Members</p>
-                    </div>
-                    <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.5s">
-                        <i class="fa fa-users fa-3x text-secondary mb-3"></i>
-                        <h1 class="text-black mb-2" data-toggle="counter-up">23</h1>
-                        <p class="text-black mb-0" style=" font-family: 'Saira', sans-serif;">Satisfied Clients</p>
-                    </div>
-                    <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.7s">
-                        <i class="fa fa-check fa-3x text-secondary mb-3"></i>
-                        <h1 class="text-black mb-2" data-toggle="counter-up">15</h1>
-                        <p class="text-black mb-0" style=" font-family: 'Saira', sans-serif;">Complete Projects</p>
-                    </div>
-                </div>
+        <div class="container-fluid bg-white fact py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container py-5 px-lg-5">
+        <div class="row g-4">
+
+            <!-- Experience -->
+            <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.1s">
+                <i class="fa fa-certificate fa-3x text-secondary mb-3"></i>
+                <h1 class="text-black mb-2" data-toggle="counter-up">1</h1>
+                <p class="text-black mb-0" style="font-family: 'Saira', sans-serif;">Years Experience</p>
             </div>
+
+            <!-- Team Members-->
+            <div class="col-md-6 col-lg-3 text-center wow fadeIn position-relative" data-wow-delay="0.3s">
+                <a href="team.php" class="stretched-link" style="text-decoration: none;"></a>
+                <i class="fa fa-users-cog fa-3x text-secondary mb-3"></i>
+                <h1 class="text-black mb-2" data-toggle="counter-up">5</h1>
+                <p class="text-black mb-0" style="font-family: 'Saira', sans-serif;">Team Members</p>
+            </div>
+
+            <!-- Clients -->
+            <div class="col-md-6 col-lg-3 text-center wow fadeIn position-relative" data-wow-delay="0.5s">
+             <a href="index.php#testimonial" class="stretched-link" style="text-decoration: none;"></a>
+             <i class="fa fa-users fa-3x text-secondary mb-3"></i>
+             <h1 class="text-black mb-2" data-toggle="counter-up">23</h1>
+             <p class="text-black mb-0" style="font-family: 'Saira', sans-serif;">Satisfied Clients</p>
+            </div>
+
+
+            <!-- Projects -->
+            <div class="col-md-6 col-lg-3 text-center wow fadeIn position-relative" data-wow-delay="0.7s">
+              <a href="index.php#projects" class="stretched-link" style="text-decoration: none;"></a>
+                <i class="fa fa-check fa-3x text-secondary mb-3"></i>
+                <h1 class="text-black mb-2" data-toggle="counter-up">15</h1>
+                <p class="text-black mb-0" style="font-family: 'Saira', sans-serif;">Complete Projects</p>
+            </div>
+
+
         </div>
+    </div>
+</div>
+
         <!-- Facts End -->
         
 

@@ -130,7 +130,7 @@ while ($row = $c_qry->fetch_assoc()) {
             <div class="swiper-wrapper">
                 <?php 
                     // Fetch services from the database
-                    $e_qry = $conn->query("SELECT * FROM services ORDER BY title ASC");
+                    $e_qry = $conn->query("SELECT * FROM services ORDER BY (title = 'Web Development') DESC, title ASC");
                     while($row = $e_qry->fetch_assoc()):
                 ?>
                 <div class="swiper-slide">

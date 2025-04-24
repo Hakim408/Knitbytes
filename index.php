@@ -38,7 +38,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         display: none !important;
        }
     }
-
+    html {
+  scroll-behavior: smooth;
+}
     </style>
     <meta charset="utf-8">
     <title>KnitBytes</title>
@@ -216,7 +218,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         </div>
     </div>
 </div>
-<div id="services" class="container-fluid py-5 bg-white">
+<div id="services" class="container-fluid py-5">
   <div class="container py-5 px-lg-5">
     <div class="text-center mb-5">
       <p class="section-title text-secondary justify-content-center" style="font-family: 'Saira', sans-serif;">
@@ -227,7 +229,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 
     <div class="row g-4">
       <?php 
-        $e_qry = $conn->query("SELECT * FROM services ORDER BY title ASC");
+        $e_qry = $conn->query("SELECT * FROM services ORDER BY (title = 'Web Development') DESC, title ASC");
         while($row = $e_qry->fetch_assoc()):
       ?>
         <div class="col-lg-3 col-md-4 col-sm-6 col-12">
@@ -244,12 +246,17 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 </div>
 
 <style>
-/* Container styling */
+/* Section background for contrast */
+#services {
+  background: linear-gradient(135deg, #f0f4f8 0%, #ffffff 100%);
+}
+
+/* Card container */
 .service-card {
   background: #022b60;
   border-radius: 15px;
   border: none;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
   font-family: 'Saira', sans-serif;
   min-height: 300px;
@@ -258,33 +265,34 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  transform-style: preserve-3d;
+  will-change: transform;
 }
 
-/* Hover effect with slight 3D effect */
+/* Card hover (3D float) */
 .service-card:hover {
-  transform: translateY(-12px);
-  box-shadow: 0 18px 30px rgba(0, 0, 0, 0.2);
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.4);
   background-color: #014080;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
-/* Image styling with subtle hover effect */
+/* Image inside card */
 .service-img {
   width: 80px;
   height: 80px;
   object-fit: cover;
   border-radius: 50%;
-  border: 3px solid white; /* Default white border */
-  transition: transform 0.3s ease, border-color 0.3s ease; /* Added transition for border-color */
+  border: 3px solid white;
+  transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
-/* Hover effect on image */
+/* Image hover */
 .service-card:hover .service-img {
   transform: scale(1.1);
-  border-color: #FBA504; /* Change border to text color on hover (gold in this case) */
+  border-color: #FBA504;
 }
 
-/* Title styling */
+/* Title inside card */
 .service-title {
   font-size: 1rem;
   color: #ffffff;
@@ -294,19 +302,23 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
   transition: color 0.3s ease;
 }
 
-/* Hover effect on title */
+/* Title hover */
 .service-card:hover .service-title {
   color: #FBA504;
 }
 
-/* Responsive Grid */
+/* Responsive tweaks */
 @media (max-width: 576px) {
   .service-card {
     padding: 20px 15px;
-    min-height: 200px;
+    min-height: 220px;
+  }
+
+  .service-img {
+    width: 70px;
+    height: 70px;
   }
 }
-
 </style>
 
         <div class="container-fluid py-8 pb-3">
@@ -359,36 +371,51 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     </div>
 </div>
 
-        <div class="container-fluid bg-white margin-top: -300px; fact py-5 wow fadeInUp" data-wow-delay="0.1s">
-            <div class="container py-5 px-lg-5">
-                <div class="row g-4">
-                    <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.1s">
-                        <i class="fa fa-certificate fa-3x text-secondary mb-3"></i>
-                        <h1 class="text-black mb-2" data-toggle="counter-up">1</h1>
-                        <p class="text-black mb-0" style=" font-family: 'Saira', sans-serif;">Years Experience</p>
-                    </div>
-                    <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.3s">
-                        <i class="fa fa-users-cog fa-3x text-secondary mb-3"></i>
-                        <h1 class="text-black mb-2" data-toggle="counter-up">5</h1>
-                        <p class="text-black mb-0" style=" font-family: 'Saira', sans-serif;">Team Members</p>
-                    </div>
-                    <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.5s">
-                        <i class="fa fa-users fa-3x text-secondary mb-3"></i>
-                        <h1 class="text-black mb-2" data-toggle="counter-up">23</h1>
-                        <p class="text-black mb-0" style=" font-family: 'Saira', sans-serif;">Satisfied Clients</p>
-                    </div>
-                    <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.7s">
-                        <i class="fa fa-check fa-3x text-secondary mb-3"></i>
-                        <h1 class="text-black mb-2" data-toggle="counter-up">15</h1>
-                        <p class="text-black mb-0" style=" font-family: 'Saira', sans-serif;">Complete Projects</p>
-                    </div>
-                </div>
+<div class="container-fluid bg-white fact py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container py-5 px-lg-5">
+        <div class="row g-4">
+
+            <!-- Experience -->
+            <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.1s">
+                <i class="fa fa-certificate fa-3x text-secondary mb-3"></i>
+                <h1 class="text-black mb-2" data-toggle="counter-up">1</h1>
+                <p class="text-black mb-0" style="font-family: 'Saira', sans-serif;">Years Experience</p>
             </div>
+
+            <!-- Team Members-->
+            <div class="col-md-6 col-lg-3 text-center wow fadeIn position-relative" data-wow-delay="0.3s">
+                <a href="team.php" class="stretched-link" style="text-decoration: none;"></a>
+                <i class="fa fa-users-cog fa-3x text-secondary mb-3"></i>
+                <h1 class="text-black mb-2" data-toggle="counter-up">5</h1>
+                <p class="text-black mb-0" style="font-family: 'Saira', sans-serif;">Team Members</p>
+            </div>
+
+            <!-- Clients -->
+            <div class="col-md-6 col-lg-3 text-center wow fadeIn position-relative" data-wow-delay="0.5s">
+             <a href="#testimonial" class="stretched-link" style="text-decoration: none;"></a>
+             <i class="fa fa-users fa-3x text-secondary mb-3"></i>
+             <h1 class="text-black mb-2" data-toggle="counter-up">23</h1>
+             <p class="text-black mb-0" style="font-family: 'Saira', sans-serif;">Satisfied Clients</p>
+            </div>
+
+
+            <!-- Projects -->
+            <div class="col-md-6 col-lg-3 text-center wow fadeIn position-relative" data-wow-delay="0.7s">
+              <a href="#projects" class="stretched-link" style="text-decoration: none;"></a>
+                <i class="fa fa-check fa-3x text-secondary mb-3"></i>
+                <h1 class="text-black mb-2" data-toggle="counter-up">15</h1>
+                <p class="text-black mb-0" style="font-family: 'Saira', sans-serif;">Complete Projects</p>
+            </div>
+
+
         </div>
+    </div>
+</div>
+
 
         <div class="container-fluid py-5">
         <div class="container py-5 px-lg-5">
-        <div class="text-center mb-5">
+        <div id="projects" class="text-center mb-5">
         <p class="section-title text-secondary justify-content-center" style=" font-family: 'Saira', sans-serif;margin-top: -100px;">
                 <span></span>Our Project<span></span>
             </p>
@@ -465,10 +492,10 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
        
 
 
-<div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s" style="margin-bottom: 100px;">
+<div id="testimonial" class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s" style="margin-bottom: 100px;">
     <div class="container py-5 px-lg-5">
         <p class="section-title text-secondary justify-content-center" style="font-family: 'Saira', sans-serif;"><span></span>Testimonial<span></span></p>
-        <h1 class="text-center mb-5" style="font-family: 'Saira', sans-serif;">What Our Clients Say!</h1>
+        <h1  class="text-center mb-5" style="font-family: 'Saira', sans-serif;">What Our Clients Say!</h1>
         <div class="owl-carousel testimonial-carousel">
             <?php 
                 $qry = $conn->query("SELECT * FROM testimonials ORDER BY RAND()");
@@ -561,7 +588,7 @@ $(document).ready(function(){
     font-weight: bold;
     color: #333;
 }
-</style>
+</>
 
 
 <div id="chatBubble" class="chat-bubble">
@@ -881,13 +908,21 @@ function scrollToBottom() {
 
 
 <style>
+    .col-4 {
+    padding: 5px;
+    transition: background-color 0.3s ease;
+    border-radius: 8px;
+            }
 
+    .col-4:hover {
+                     background-color: #022b60;
+                 }
     .col-4 img {
         height: 100px;
         object-fit: cover; 
         border-radius: 8px;  
         border: 1px solid #ccc;  
-    }
+                }
 </style>
 
             <div class="col-md-3 offset-md-1 text-md-end" style="margin-left: auto;">

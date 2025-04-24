@@ -27,7 +27,6 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 }
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -331,6 +330,103 @@ while ($row = $c_qry->fetch_assoc()) {
   color: white;
 }
 
+.team-flip-card {
+  width: 100%;
+  perspective: 1000px;
+}
+
+.team-flip-inner {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.team-flip-card:hover .team-flip-inner {
+  transform: rotateY(180deg);
+}
+
+.team-flip-front,
+.team-flip-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, #0f3c64, #072448);
+  padding: 20px;
+  color: white;
+}
+
+.team-flip-front .avatar {
+  background-color: #fff;
+  color: #0f3c64;
+  width: 70px;
+  height: 70px;
+  font-weight: bold;
+  font-size: 22px;
+  border-radius: 50%;
+  line-height: 70px;
+  margin-bottom: 10px;
+}
+
+.team-flip-front h3 {
+  font-size: 20px;
+  margin: 0;
+  color:white;
+}
+
+.team-flip-front .role {
+  font-size: 14px;
+  font-style: italic;
+  color: #ccc;
+}
+
+.team-flip-back {
+  transform: rotateY(180deg);
+  background: #022b60;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.team-flip-back img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.linkedin-icon {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background-color: #0077B5;
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 18px;
+  transition: background 0.3s;
+  text-decoration: none;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.linkedin-icon:hover {
+  background-color: #005582;
+}
+
+
 </style>
 
 <div class="container">
@@ -348,113 +444,160 @@ while ($row = $c_qry->fetch_assoc()) {
     </div>
   <div class="team-row-modern">
 
-    <div class="team-card">
+  <div class="team-flip-card">
+  <div class="team-flip-inner">
+  
+    <div class="team-flip-front">
       <div class="avatar">RD</div>
       <h3>Roshan Dhakal</h3>
       <p class="role">CTO</p>
-      <div class="socials">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-      </div>
     </div>
 
-    <div class="team-card">
+    <div class="team-flip-back">
+      <img src="img/team.png" alt="Roshan Dhakal">
+      <a href="https://www.linkedin.com/in/yourprofile" class="linkedin-icon" target="_blank">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </div>
+  </div>
+</div>
+
+
+<div class="team-flip-card">
+  <div class="team-flip-inner">
+    <!-- Front side -->
+    <div class="team-flip-front">
       <div class="avatar">SK</div>
       <h3>Suman Khadka</h3>
       <p class="role">Team Lead</p>
-      <div class="socials">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-      </div>
     </div>
 
-    <div class="team-card">
-      <div class="avatar">KG</div>
-      <h3>Krinjal Ghale</h3>
-      <p class="role">QA</p>
-      <div class="socials">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-      </div>
+    <!-- Back side -->
+    <div class="team-flip-back">
+      <img src="img/team.png" alt="Suman Khadka">
+      <a href="https://www.linkedin.com/in/yourprofile" class="linkedin-icon" target="_blank">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
     </div>
+  </div>
+</div>
 
-    <div class="team-card">
+<div class="team-flip-card">
+  <div class="team-flip-inner">
+    <!-- Front side -->
+    <div class="team-flip-front">
       <div class="avatar">BB</div>
-      <h3>Bikash Bhatt Chhetri</h3>
-      <p class="role">Co-founder/Business Manager</p>
-      <div class="socials">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-      </div>
+      <h3>Bikash Bhatt Chettri</h3>
+      <p class="role">Co-Founder/Business Lead</p>
     </div>
 
-    <div class="team-card">
-      <div class="avatar"><i class="fas fa-user-tie"></i></div>
+    <!-- Back side -->
+    <div class="team-flip-back">
+      <img src="img/team.png" alt="bikash Bhatt Chettri">
+      <a href="https://www.linkedin.com/in/yourprofile" class="linkedin-icon" target="_blank">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="team-flip-card">
+  <div class="team-flip-inner">
+    <!-- Front side -->
+    <div class="team-flip-front">
+    <div class="avatar"><i class="fas fa-user-tie"></i></div>
       <h3>Niraj Gautam</h3>
-      <p class="role">Web Developer</p>
-      <div class="socials">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-      </div>
+      <p class="role">Full Stack Developer</p>
     </div>
 
-    <div class="team-card">
-      <div class="avatar"><i class="fas fa-user-tie"></i></div>
+    <!-- Back side -->
+    <div class="team-flip-back">
+      <img src="img/team.png" alt="Niraj Gautam">
+      <a href="https://www.linkedin.com/in/yourprofile" class="linkedin-icon" target="_blank">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </div>
+  </div>
+</div>
+  
+<div class="team-flip-card">
+  <div class="team-flip-inner">
+    <!-- Front side -->
+    <div class="team-flip-front">
+    <div class="avatar"><i class="fas fa-user-tie"></i></div>
       <h3>Hakim Raut</h3>
-      <p class="role">Web Developer</p>
-      <div class="socials">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-      </div>
+      <p class="role">Full Stack Developer</p>
     </div>
 
-    <div class="team-card">
-      <div class="avatar"><i class="fas fa-user-tie"></i></div>
+    <!-- Back side -->
+    <div class="team-flip-back">
+      <img src="img/hakim.jpg" alt="Hakim Raut">
+      <a href="https://www.linkedin.com/in/yourprofile" class="linkedin-icon" target="_blank">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </div>
+  </div>
+</div>
+
+
+<div class="team-flip-card">
+  <div class="team-flip-inner">
+    <!-- Front side -->
+    <div class="team-flip-front">
+    <div class="avatar"><i class="fas fa-user-tie"></i></div>
       <h3>Sulav Khadka</h3>
       <p class="role">Front End Designer (Intern)</p>
-      <div class="socials">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-      </div>
     </div>
 
-    <div class="team-card">
-      <div class="avatar"><i class="fas fa-user-tie"></i></div>
+    <!-- Back side -->
+    <div class="team-flip-back">
+      <img src="img/team.png" alt="Sulav Khadka">
+      <a href="https://www.linkedin.com/in/yourprofile" class="linkedin-icon" target="_blank">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="team-flip-card">
+  <div class="team-flip-inner">
+    <!-- Front side -->
+    <div class="team-flip-front">
+    <div class="avatar"><i class="fas fa-user-tie"></i></div>
       <h3>Milan Sunar</h3>
       <p class="role">Digital Marketing (Intern)</p>
-      <div class="socials">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-      </div>
     </div>
 
-    <div class="team-card">
-      <div class="avatar"><i class="fas fa-user-tie"></i></div>
+    <!-- Back side -->
+    <div class="team-flip-back">
+      <img src="img/team.png" alt="Milan Sunar">
+      <a href="https://www.linkedin.com/in/yourprofile" class="linkedin-icon" target="_blank">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="team-flip-card">
+  <div class="team-flip-inner">
+    <!-- Front side -->
+    <div class="team-flip-front">
+    <div class="avatar"><i class="fas fa-user-tie"></i></div>
       <h3>Ashish Khadka</h3>
       <p class="role">Backend Developer (Intern)</p>
-      <div class="socials">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-      </div>
     </div>
+
+    <!-- Back side -->
+    <div class="team-flip-back">
+      <img src="img/team.png" alt="Ashish Khadka">
+      <a href="https://www.linkedin.com/in/yourprofile" class="linkedin-icon" target="_blank">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </div>
+  </div>
+</div>
 
   </div>
 </div>

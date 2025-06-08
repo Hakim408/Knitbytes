@@ -202,7 +202,7 @@ while ($row = $c_qry->fetch_assoc()) {
 }
 ?>
      <!-- Team Section -->
-<style>
+     <style>
   .team-container {
     max-width: 1200px;
     margin: auto;
@@ -231,6 +231,7 @@ while ($row = $c_qry->fetch_assoc()) {
     text-align: center;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid #FBA504;
   }
 
   .team-card:hover {
@@ -276,154 +277,177 @@ while ($row = $c_qry->fetch_assoc()) {
   .socials a:hover {
     color: #1da1f2;
   }
+
   .team-card {
-  color: white;
+    color: white;
+  }
+
+  .team-card .socials a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid white;
+    border-radius: 6px;
+    margin: 0 5px;
+    text-decoration: none;
+    color: white;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  }
+
+  /* Social Hover Effects */
+  .team-card .socials a:nth-child(1):hover {
+    background-color: #1877F2;
+    border-color: #1877F2;
+  }
+  .team-card .socials a:nth-child(2):hover {
+    background-color: #1DA1F2;
+    border-color: #1DA1F2;
+  }
+  .team-card .socials a:nth-child(3):hover {
+    background-color: #E1306C;
+    border-color: #E1306C;
+  }
+  .team-card .socials a:nth-child(4):hover {
+    background-color: #0077B5;
+    border-color: #0077B5;
+  }
+
+  .team-flip-card {
+    width: 100%;
+    perspective: 1000px;
+  }
+
+  .team-flip-inner {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+  }
+
+  .team-flip-card:hover .team-flip-inner {
+    transform: rotateY(180deg);
+  }
+
+  .team-flip-front,
+  .team-flip-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    color: white;
+  }
+
+  .team-flip-front {
+    background: linear-gradient(145deg, #0f3c64, #072448);
+    border: 2px solid #FBA504;
+
+  }
+
+  .team-flip-front .avatar {
+    background-color: #fff;
+    color: #0f3c64;
+    width: 70px;
+    height: 70px;
+    font-weight: bold;
+    font-size: 22px;
+    border-radius: 50%;
+    line-height: 70px;
+    margin-bottom: 10px;
+  }
+
+  .team-flip-front h3 {
+    font-size: 22px;
+  font-weight: 600;
+  margin: 0;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+  }
+
+  .team-flip-front .role {
+    margin-top: 6px;
+  font-size: 13px;
+  color: #cccccc;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 500;
+  }
+
+  .team-flip-back {
+    transform: rotateY(180deg);
+    background: #022b60;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .team-flip-back img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    object-position: top; 
+    border-radius: 20px;
 }
 
-.team-card .socials a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border: 1px solid white;
-  border-radius: 6px; /* Rounded edge rectangle */
-  margin: 0 5px;
-  text-decoration: none;
-  color: white;
-  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-}
 
-/* Facebook */
-.team-card .socials a:nth-child(1):hover {
-  background-color: #1877F2;
-  border-color: #1877F2;
-}
-.team-card .socials a:nth-child(1):hover .fa-facebook-f {
-  color: white;
-}
+  .linkedin-icon {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    background-color: #0077B5;
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 18px;
+    transition: background 0.3s;
+    text-decoration: none;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+  }
 
-/* Twitter */
-.team-card .socials a:nth-child(2):hover {
-  background-color: #1DA1F2;
-  border-color: #1DA1F2;
-}
-.team-card .socials a:nth-child(2):hover .fa-twitter {
-  color: white;
-}
-
-/* Instagram */
-.team-card .socials a:nth-child(3):hover {
-  background-color: #E1306C;
-  border-color: #E1306C;
-}
-.team-card .socials a:nth-child(3):hover .fa-instagram {
-  color: white;
-}
-
-/* LinkedIn */
-.team-card .socials a:nth-child(4):hover {
-  background-color: #0077B5;
-  border-color: #0077B5;
-}
-.team-card .socials a:nth-child(4):hover .fa-linkedin-in {
-  color: white;
-}
-
-.team-flip-card {
-  width: 100%;
-  perspective: 1000px;
-}
-
-.team-flip-inner {
-  position: relative;
-  width: 100%;
-  height: 300px;
-  text-align: center;
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
-}
-
-.team-flip-card:hover .team-flip-inner {
-  transform: rotateY(180deg);
+  .linkedin-icon:hover {
+    background-color: #005582;
+  }
+  .team-flip-front .team-quote {
+  margin-top: 16px;
+  font-size: 15px;
+  font-weight: 400;
+  font-style: italic;
+  color: #f0f0f0;
+  padding: 10px 20px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-left: 4px solid #FBA504;
+  border-radius: 6px;
+  line-height: 1.6;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
 }
 
 .team-flip-front,
-.team-flip-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border-radius: 20px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  backface-visibility: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(145deg, #0f3c64, #072448);
-  padding: 20px;
-  color: white;
-}
-
-.team-flip-front .avatar {
-  background-color: #fff;
-  color: #0f3c64;
-  width: 70px;
-  height: 70px;
-  font-weight: bold;
-  font-size: 22px;
-  border-radius: 50%;
-  line-height: 70px;
-  margin-bottom: 10px;
-}
-
-.team-flip-front h3 {
-  font-size: 20px;
-  margin: 0;
-  color:white;
-}
-
-.team-flip-front .role {
-  font-size: 14px;
-  font-style: italic;
-  color: #ccc;
-}
-
-.team-flip-back {
-  transform: rotateY(180deg);
-  background: #022b60;
-  padding: 0;
-  overflow: hidden;
-  position: relative;
-}
-
-.team-flip-back img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 20px;
-}
-
-.linkedin-icon {
-  position: absolute;
-  bottom: 12px;
-  right: 12px;
-  background-color: #0077B5;
-  width: 40px;
-  height: 40px;
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 18px;
-  transition: background 0.3s;
-  text-decoration: none;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
-}
-
-.linkedin-icon:hover {
-  background-color: #005582;
+.team-flip-back,
+.team-flip-front h3,
+.team-flip-front .role,
+.team-flip-front .team-quote {
+  font-family: 'Saira', sans-serif;
 }
 
 
@@ -444,60 +468,64 @@ while ($row = $c_qry->fetch_assoc()) {
     </div>
   <div class="team-row-modern">
 
-  <div class="team-flip-card">
+ <div class="team-flip-card">
   <div class="team-flip-inner">
   
     <div class="team-flip-front">
-      <div class="avatar">RD</div>
       <h3>Roshan Dhakal</h3>
       <p class="role">CTO</p>
+      <p class="team-quote">“Working at Knit Bytes has been an incredible journey of innovation and collaboration. Every day brings new opportunities to grow.”</p>
     </div>
 
     <div class="team-flip-back">
-      <img src="img/team.png" alt="Roshan Dhakal">
+      <img src="img/t.jpg" alt="Roshan Dhakal">
       <a href="https://www.linkedin.com/in/yourprofile" class="linkedin-icon" target="_blank">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </div>
+
   </div>
 </div>
 
 
+
+
 <div class="team-flip-card">
   <div class="team-flip-inner">
-    <!-- Front side -->
+  
     <div class="team-flip-front">
-      <div class="avatar">SK</div>
       <h3>Suman Khadka</h3>
       <p class="role">Team Lead</p>
+      <p class="team-quote">“At Knit Bytes, I’ve found a team that truly values creativity, learning, and delivering impactful tech solutions.”</p>
     </div>
 
-    <!-- Back side -->
     <div class="team-flip-back">
-      <img src="img/team.png" alt="Suman Khadka">
+      <img src="img/t.jpg" alt="Suman Khadka">
       <a href="https://www.linkedin.com/in/yourprofile" class="linkedin-icon" target="_blank">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </div>
+
   </div>
 </div>
 
+
 <div class="team-flip-card">
   <div class="team-flip-inner">
-    <!-- Front side -->
+  
     <div class="team-flip-front">
-      <div class="avatar">BB</div>
       <h3>Bikash Bhatt Chettri</h3>
       <p class="role">Co-Founder/Business Lead</p>
+      <p class="team-quote">“What sets Knit Bytes apart is the supportive culture and the constant drive to push boundaries in the digital world.”</p>
     </div>
 
-    <!-- Back side -->
     <div class="team-flip-back">
-      <img src="img/team.png" alt="bikash Bhatt Chettri">
+      <img src="img/t.jpg" alt="Roshan Dhakal">
       <a href="https://www.linkedin.com/in/yourprofile" class="linkedin-icon" target="_blank">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </div>
+
   </div>
 </div>
 
@@ -505,97 +533,97 @@ while ($row = $c_qry->fetch_assoc()) {
 
 <div class="team-flip-card">
   <div class="team-flip-inner">
-    <!-- Front side -->
+  
     <div class="team-flip-front">
-    <div class="avatar"><i class="fas fa-user-tie"></i></div>
       <h3>Niraj Gautam</h3>
       <p class="role">Full Stack Developer</p>
+      <p class="team-quote">“Joining Knit Bytes has been one of the best career decisions I’ve made. I feel empowered and motivated every single day.”</p>
     </div>
 
-    <!-- Back side -->
     <div class="team-flip-back">
-      <img src="img/team.png" alt="Niraj Gautam">
+      <img src="img/t.jpg" alt="Niraj Gautam">
       <a href="https://www.linkedin.com/in/yourprofile" class="linkedin-icon" target="_blank">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </div>
+
   </div>
 </div>
   
 <div class="team-flip-card">
   <div class="team-flip-inner">
-    <!-- Front side -->
+  
     <div class="team-flip-front">
-    <div class="avatar"><i class="fas fa-user-tie"></i></div>
       <h3>Hakim Raut</h3>
       <p class="role">Full Stack Developer</p>
+      <p class="team-quote">“The leadership at Knit Bytes trusts its team and gives us the space to innovate. It’s a great place for any tech enthusiast.”</p>
     </div>
 
-    <!-- Back side -->
     <div class="team-flip-back">
-      <img src="img/hakim.jpg" alt="Hakim Raut">
+      <img src="img/t.jpg" alt="Hakim Raut">
       <a href="https://www.linkedin.com/in/yourprofile" class="linkedin-icon" target="_blank">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </div>
+
   </div>
 </div>
 
 
 <div class="team-flip-card">
   <div class="team-flip-inner">
-    <!-- Front side -->
+  
     <div class="team-flip-front">
-    <div class="avatar"><i class="fas fa-user-tie"></i></div>
       <h3>Sulav Khadka</h3>
       <p class="role">Front End Designer (Intern)</p>
+      <p class="team-quote">“From day one, I felt like part of a family at Knit Bytes — we work hard, solve real problems, and celebrate wins together.”</p>
     </div>
 
-    <!-- Back side -->
     <div class="team-flip-back">
-      <img src="img/team.png" alt="Sulav Khadka">
+      <img src="img/t.jpg" alt="Sulav Khadka">
       <a href="https://www.linkedin.com/in/yourprofile" class="linkedin-icon" target="_blank">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </div>
+
   </div>
 </div>
 
 <div class="team-flip-card">
   <div class="team-flip-inner">
-    <!-- Front side -->
+  
     <div class="team-flip-front">
-    <div class="avatar"><i class="fas fa-user-tie"></i></div>
       <h3>Milan Sunar</h3>
       <p class="role">Digital Marketing (Intern)</p>
+      <p class="team-quote">“Knit Bytes isn’t just a workplace; it’s a platform for continuous growth, shared success, and meaningful collaboration.”</p>
     </div>
 
-    <!-- Back side -->
     <div class="team-flip-back">
-      <img src="img/team.png" alt="Milan Sunar">
+      <img src="img/t.jpg" alt=" Milan Sunar">
       <a href="https://www.linkedin.com/in/yourprofile" class="linkedin-icon" target="_blank">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </div>
+
   </div>
 </div>
 
 <div class="team-flip-card">
   <div class="team-flip-inner">
-    <!-- Front side -->
+  
     <div class="team-flip-front">
-    <div class="avatar"><i class="fas fa-user-tie"></i></div>
       <h3>Ashish Khadka</h3>
       <p class="role">Backend Developer (Intern)</p>
+      <p class="team-quote">“Working at Knit Bytes has been an incredible journey of innovation and collaboration. Every day brings new opportunities to grow.”</p>
     </div>
 
-    <!-- Back side -->
     <div class="team-flip-back">
-      <img src="img/team.png" alt="Ashish Khadka">
+      <img src="img/t.jpg" alt="Ashish Khadka">
       <a href="https://www.linkedin.com/in/yourprofile" class="linkedin-icon" target="_blank">
         <i class="fab fa-linkedin-in"></i>
       </a>
     </div>
+
   </div>
 </div>
 

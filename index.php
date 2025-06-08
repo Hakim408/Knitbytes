@@ -205,16 +205,38 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     <p class="text-black pb-3 animated slideInDown" style="text-align: justify;" style=" font-family: 'Saira', sans-serif;">
         <?php echo stripslashes($_settings->info('welcome_message')) ?>
     </p>
-    <a href="service.php" class="btn btn-primary py-sm-3 px-sm-5 rounded-pill me-3 animated slideInLeft" style="font-family: 'Saira', sans-serif; background-color: #022b60; border-color: #022b60;">
-    Read More
-    </a>
-    <a href="contact.php" class="btn btn-primary py-sm-3 px-sm-5 rounded-pill animated slideInRight" style="font-family: 'Saira', sans-serif; background-color: #022b60; border-color: #022b60;">
-    Contact Us
-    </a>
+    <a href="service.php" 
+   class="btn btn-primary py-sm-3 px-sm-5 rounded-pill me-3 animated slideInLeft" 
+   style="font-family: 'Saira', sans-serif; background-color: #022b60; border-color: #FBA504; border-width: 2px; border-style: solid;">
+   Read More
+</a>
+
+<a href="contact.php" 
+   class="btn btn-primary py-sm-3 px-sm-5 rounded-pill animated slideInRight" 
+   style="font-family: 'Saira', sans-serif; background-color: #022b60; border-color: #FBA504; border-width: 2px; border-style: solid;">
+   Contact Us
+</a>
+
     </div>
             <div class="col-lg-6 text-center"> 
-                <img src="<?php echo validate_image($_settings->info('banner')); ?>" alt="Banner Image" class="hero-image img-fluid">
-            </div>
+            <div style="
+             border: 1px solid #FBA504; 
+             border-radius: 30px; 
+             padding: 20px;
+             background-color: #ffffff;
+             max-width: 100%;
+             display: inline-block;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+             ">
+    <img 
+        src="<?php echo validate_image($_settings->info('banner')); ?>" 
+        alt="Banner Image" 
+        class="img-fluid" 
+        style="border-radius: 20px; width: 100%; height: auto; display: block;"
+    >
+  </div>
+</div>
+
         </div>
     </div>
 </div>
@@ -254,8 +276,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 /* Card container */
 .service-card {
   background: #022b60;
+  border: 2px solid #FBA504;
   border-radius: 15px;
-  border: none;
+ 
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
   font-family: 'Saira', sans-serif;
@@ -274,6 +297,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
   transform: translateY(-12px) scale(1.02);
   box-shadow: 0 20px 35px rgba(0, 0, 0, 0.4);
   background-color: #014080;
+  border: none;
 }
 
 /* Image inside card */
@@ -360,12 +384,20 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
                         <div class="progress-bar" style="background-color: #FBA504; width: 95%;" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                 </div>
-                <a href="about.php" class="btn btn-primary py-sm-3 px-sm-5 rounded-pill mt-3" style="font-family: 'Saira', sans-serif; background-color: #022b60; border-color: #022b60; ">
-                    Read More
-                </a>
+                <a href="about.php" 
+   class="btn btn-primary py-sm-3 px-sm-5 rounded-pill mt-3" 
+   style="font-family: 'Saira', sans-serif; background-color: #022b60; border-color: #FBA504; border-width: 2px; border-style: solid;">
+   Read More
+</a>
+
             </div>
             <div class="col-lg-6">
-                <img class="img-fluid wow zoomIn" data-wow-delay="0.5s" src="img/about.png" alt="About Us">
+            <img class="img-fluid wow zoomIn" 
+                 data-wow-delay="0.5s" 
+                 src="img/about.png" 
+                 alt="About Us"
+                 style="border: 2px solid #FBA504; border-radius: 50%; padding: 10px; background-color: #ffffff; width: 500px; height: 500px;">
+
             </div>
         </div>
     </div>
@@ -377,7 +409,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 
             <!-- Experience -->
             <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.1s">
-                <i class="fa fa-certificate fa-3x text-secondary mb-3"></i>
+                <i class="fa fa-certificate fa-3x text-secondary mb-3" style="border: 2px solid #FBA504; border-radius: 10px; padding: 20px;"></i>
                 <h1 class="text-black mb-2" data-toggle="counter-up">1</h1>
                 <p class="text-black mb-0" style="font-family: 'Saira', sans-serif;">Years Experience</p>
             </div>
@@ -385,7 +417,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
             <!-- Team Members-->
             <div class="col-md-6 col-lg-3 text-center wow fadeIn position-relative" data-wow-delay="0.3s">
                 <a href="team.php" class="stretched-link" style="text-decoration: none;"></a>
-                <i class="fa fa-users-cog fa-3x text-secondary mb-3"></i>
+                <i class="fa fa-users-cog fa-3x text-secondary mb-3" style="border: 2px solid #FBA504; border-radius: 10px; padding: 20px;"></i>
                 <h1 class="text-black mb-2" data-toggle="counter-up">5</h1>
                 <p class="text-black mb-0" style="font-family: 'Saira', sans-serif;">Team Members</p>
             </div>
@@ -393,43 +425,39 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
             <!-- Clients -->
             <div class="col-md-6 col-lg-3 text-center wow fadeIn position-relative" data-wow-delay="0.5s">
              <a href="#testimonial" class="stretched-link" style="text-decoration: none;"></a>
-             <i class="fa fa-users fa-3x text-secondary mb-3"></i>
+             <i class="fa fa-users fa-3x text-secondary mb-3" style="border: 2px solid #FBA504; border-radius: 10px; padding: 20px;"></i>
              <h1 class="text-black mb-2" data-toggle="counter-up">23</h1>
              <p class="text-black mb-0" style="font-family: 'Saira', sans-serif;">Satisfied Clients</p>
             </div>
 
-
             <!-- Projects -->
             <div class="col-md-6 col-lg-3 text-center wow fadeIn position-relative" data-wow-delay="0.7s">
               <a href="#projects" class="stretched-link" style="text-decoration: none;"></a>
-                <i class="fa fa-check fa-3x text-secondary mb-3"></i>
+                <i class="fa fa-check fa-3x text-secondary mb-3" style="border: 2px solid #FBA504; border-radius: 10px; padding: 20px;"></i>
                 <h1 class="text-black mb-2" data-toggle="counter-up">15</h1>
                 <p class="text-black mb-0" style="font-family: 'Saira', sans-serif;">Complete Projects</p>
             </div>
-
 
         </div>
     </div>
 </div>
 
 
-        <div class="container-fluid py-5">
-        <div class="container py-5 px-lg-5">
+<div class="container-fluid py-5">
+    <div class="container py-5 px-lg-5">
         <div id="projects" class="text-center mb-5">
-        <p class="section-title text-secondary justify-content-center" style=" font-family: 'Saira', sans-serif;margin-top: -100px;">
+            <p class="section-title text-secondary justify-content-center" style="font-family: 'Saira', sans-serif; margin-top: -100px;">
                 <span></span>Our Project<span></span>
             </p>
             <h1 class="fw-bold text" style="font-family: 'Saira', sans-serif;">Recently Completed Projects</h1>
         </div>
         <div class="row g-4">
             <div class="col-lg-4 col-md-6">
-                <div class="card bg-light shadow-sm border-0 rounded">
+                <div class="card bg-light shadow-sm border-0" style="border: 2px solid #FBA504 !important; border-radius: 15px !important;">
                     <div class="position-relative">
-                    <img src="img/wd.png" class="img-fluid rounded-top" alt="College Website" >
-
+                        <img src="img/wd.png" class="img-fluid rounded-top" alt="College Website">
                         <div class="portfolio-overlay d-flex justify-content-center align-items-center">
                             <a class="btn btn-outline-dark btn-sm mx-1" href="img/drms.jpg" data-lightbox="portfolio">
-                            
                                 <i class="fa fa-eye"></i>
                             </a>
                             <a class="btn btn-outline-dark btn-sm mx-1" href="https://drms.edu.np/">
@@ -438,15 +466,14 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
                         </div>
                     </div>
                     <div class="card-body text-center">
-                    <h5 class="fw-bold" style="font-family: 'Saira', sans-serif; color: #022b60;">School Website</h5>
-
+                        <h5 class="fw-bold" style="font-family: 'Saira', sans-serif; color: #022b60;">School Website</h5>
                         <p class="text-muted mb-2" style="font-family: 'Saira', sans-serif;">Web Development</p>
                     </div>
                 </div>
             </div>
 
             <div class="col-lg-4 col-md-6">
-                <div class="card bg-light shadow-sm border-0 rounded">
+                <div class="card bg-light shadow-sm border-0" style="border: 2px solid #FBA504 !important; border-radius: 15px !important;">
                     <div class="position-relative">
                         <img src="img/wd.png" class="img-fluid rounded-top" alt="Shankhya Solution">
                         <div class="portfolio-overlay d-flex justify-content-center align-items-center">
@@ -459,14 +486,14 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
                         </div>
                     </div>
                     <div class="card-body text-center">
-                        <h5 class="fw-bold  " style="font-family: 'Saira', sans-serif; color: #022b60;">Sankhya Solution</h5>
+                        <h5 class="fw-bold" style="font-family: 'Saira', sans-serif; color: #022b60;">Sankhya Solution</h5>
                         <p class="text-muted mb-2" style="font-family: 'Saira', sans-serif;">Software Development</p>
                     </div>
                 </div>
             </div>
 
             <div class="col-lg-4 col-md-6">
-                <div class="card bg-light shadow-sm border-0 rounded">
+                <div class="card bg-light shadow-sm border-0" style="border: 2px solid #FBA504 !important; border-radius: 15px !important;">
                     <div class="position-relative">
                         <img src="img/wd.png" class="img-fluid rounded-top" alt="Sahakari E-commerce">
                         <div class="portfolio-overlay d-flex justify-content-center align-items-center">
@@ -479,7 +506,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
                         </div>
                     </div>
                     <div class="card-body text-center">
-                        <h5 class="fw-bold " style="font-family: 'Saira', sans-serif; color: #022b60;">Sahakari E-commerce</h5>
+                        <h5 class="fw-bold" style="font-family: 'Saira', sans-serif; color: #022b60;">Sahakari E-commerce</h5>
                         <p class="text-muted mb-2" style="font-family: 'Saira', sans-serif;">E-Commerce Platform</p>
                     </div>
                 </div>
@@ -489,13 +516,14 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 </div>
 
 
+
        
 
 
 <div id="testimonial" class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s" style="margin-bottom: 100px;">
     <div class="container py-5 px-lg-5">
         <p class="section-title text-secondary justify-content-center" style="font-family: 'Saira', sans-serif;"><span></span>Testimonial<span></span></p>
-        <h1  class="text-center mb-5" style="font-family: 'Saira', sans-serif;">What Our Clients Say!</h1>
+        <h1 class="text-center mb-5" style="font-family: 'Saira', sans-serif;">What Our Clients Say!</h1>
         <div class="owl-carousel testimonial-carousel">
             <?php 
                 $qry = $conn->query("SELECT * FROM testimonials ORDER BY RAND()");
@@ -503,18 +531,16 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
                     $row['message'] = html_entity_decode($row['message']);
                     $row['message'] = str_replace('Knit Bytes', '<a href="https://knitbytes.com" target="_blank">Knit Bytes</a>', $row['message']);
             ?>
-            <div class="testimonial-item bg-light rounded my-4">
+            <div class="testimonial-item bg-light rounded my-4" style="border: 2px solid #FBA504; border-radius: 15px; padding: 15px;">
                 <p class="fs-5 d-flex justify-content-left align-items-center" style="font-family: 'Saira', sans-serif;">
                     <i class="fa fa-quote-left fa-2x text-secondary me-2"></i> 
                     <?php echo $row['message']; ?>
-                  
                 </p>
                 <div class="d-flex align-items-center">
                     <img class="img-fluid flex-shrink-0 rounded-circle" 
                          src="<?php echo validate_image($row['file_path']); ?>" 
                          alt="<?php echo $row['message_from']; ?>" 
-                         style="width: 65px; height: 65px;">
-
+                         style="width: 65px; height: 65px; border: 2px solid #FBA504; padding: 2px;">
                     <div class="ps-4">
                         <h5 class="mb-1" style="font-family: 'Saira', sans-serif;"><?php echo $row['message_from']; ?></h5>
                         <span><?php echo isset($row['profession']) ? $row['profession'] : 'Client'; ?></span>
@@ -525,6 +551,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         </div>
     </div>
 </div>
+
 
 <!-- Include Owl Carousel CSS & JS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">

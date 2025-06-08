@@ -126,108 +126,99 @@ while ($row = $c_qry->fetch_assoc()) {
         </div>
 
         <!-- Swiper Slider -->
-        <div class="swiper mySwiper">
-            <div class="swiper-wrapper">
-                <?php 
-                    // Fetch services from the database
-                    $e_qry = $conn->query("SELECT * FROM services ORDER BY (title = 'Web Development') DESC, title ASC");
-                    while($row = $e_qry->fetch_assoc()):
-                ?>
-                <div class="swiper-slide">
-                    <div class="feature-item bg-light rounded text-center p-4 shadow">
-                        <!-- Dynamically fetch and display the icon or image -->
-                        <img src="<?php echo validate_image($row['file_path']) ?>" 
-                             alt="<?php echo $row['title'] ?>" class="img-fluid mb-4" 
-                             style="width: 100px; height: 100px;">
-                        
-                        <h5 class="mb-3"><?php echo $row['title'] ?></h5>
-                        <p class="m-0"><?php echo stripslashes(html_entity_decode($row['description'])) ?></p>
-                    </div>
-                </div>
-                <?php endwhile; ?>
-            </div>
-
-            <!-- Swiper Pagination -->
-            <div class="swiper-pagination"></div>
+        <div class="row g-4">
+      <?php 
+        $e_qry = $conn->query("SELECT * FROM services ORDER BY (title = 'Web Development') DESC, title ASC");
+        while($row = $e_qry->fetch_assoc()):
+      ?>
+        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+          <div class="service-card h-100 text-center p-3">
+            <img src="<?php echo validate_image($row['file_path']) ?>" 
+                 alt="<?php echo $row['title'] ?>" 
+                 class="service-img mb-3">
+            <h6 class="service-title mb-0"><?php echo $row['title']; ?></h6>
+          </div>
         </div>
+      <?php endwhile; ?>
     </div>
+  </div>
 </div>
 
-<!-- Include Swiper CSS & JS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
-<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-
-<!-- Initialize Swiper with Responsive Settings -->
-<script>
-    var swiper = new Swiper(".mySwiper", {
-        slidesPerView: 2,  // Default: Show 2 slides
-        spaceBetween: 30,  
-        loop: true,  
-        autoplay: {
-            delay: 5000,  // Slower transition: 5 seconds per slide
-            disableOnInteraction: false,
-        },
-        speed: 1200,  // Smooth transition speed
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-        },
-        breakpoints: {
-            1200: { slidesPerView: 2, spaceBetween: 30 },  // Large screens
-            768: { slidesPerView: 1, spaceBetween: 20 },   // Tablets
-            480: { slidesPerView: 1, spaceBetween: 15 }    // Mobile screens
-        }
-    });
-</script>
-
-<!-- Custom CSS for Swiper (Mobile-Friendly) -->
 <style>
-.swiper {
-    width: 100%;
-    padding: 40px 0;
+/* Section background for contrast */
+#services {
+  background: linear-gradient(135deg, #f0f4f8 0%, #ffffff 100%);
 }
 
-.swiper-slide {
-    display: flex;
-    justify-content: center;
+/* Card container */
+.service-card {
+  background: #022b60;
+  border-radius: 15px;
+  border: none;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  font-family: 'Saira', sans-serif;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  will-change: transform;
 }
 
-.feature-item {
-    transition: transform 1s ease-in-out, opacity 1s ease-in-out;
-    opacity: 0.9;
-    border-radius: 10px;
-    background-color: #f9f9f9;
-    padding: 20px;
+/* Card hover (3D float) */
+.service-card:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.4);
+  background-color: #014080;
 }
 
-/* Mobile Adjustments */
-@media (max-width: 768px) {
-    .swiper {
-        padding: 20px 0;
-    }
-    .feature-item {
-        padding: 15px;
-    }
-    .feature-item img {
-        width: 60px;
-        height: 60px;
-    }
-    h5 {
-        font-size: 16px;
-    }
-    p {
-        font-size: 14px;
-    }
+/* Image inside card */
+.service-img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid white;
+  transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
-.swiper-slide-active .feature-item {
-    opacity: 1;
-    transform: scale(1.05); /* Popup effect */
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+/* Image hover */
+.service-card:hover .service-img {
+  transform: scale(1.1);
+  border-color: #FBA504;
+}
+
+/* Title inside card */
+.service-title {
+  font-size: 1rem;
+  color: #ffffff;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+/* Title hover */
+.service-card:hover .service-title {
+  color: #FBA504;
+}
+
+/* Responsive tweaks */
+@media (max-width: 576px) {
+  .service-card {
+    padding: 20px 15px;
+    min-height: 220px;
+  }
+
+  .service-img {
+    width: 70px;
+    height: 70px;
+  }
 }
 </style>
-        <!-- Service End -->
-
 
       
 
